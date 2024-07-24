@@ -6,6 +6,7 @@ import Dash from "./layout/Dash";
 import Wallet from "./layout/Wallet";
 import MainLayout from "./layout/MainLayout";
 import News from "./layout/News";
+import Message from "./components/Message";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
             <Route path="dash" element={<Dash/>} />
             <Route path="news" element={<News/>} />
             <Route path="wallet" element={<Wallet/>} />
+            <Route path="message" element={<Message/>} />
           </Route>
           <Route path="*" element={<Error/>} />
         </Routes>

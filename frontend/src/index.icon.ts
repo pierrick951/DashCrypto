@@ -2,3 +2,8 @@ export { IoHome } from "react-icons/io5";
 export { MdSpaceDashboard } from "react-icons/md";
 export { TiNews } from "react-icons/ti";
 export { FaWallet } from "react-icons/fa";
+export { IoMdSettings } from "react-icons/io";
+export { TbLogout2 } from "react-icons/tb";
+export { FaUser } from "react-icons/fa";
+export { FaChevronDown } from "react-icons/fa";
+export { IoMail } from "react-icons/io5";
