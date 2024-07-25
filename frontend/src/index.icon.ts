@@ -7,3 +7,7 @@ export { TbLogout2 } from "react-icons/tb";
 export { FaUser } from "react-icons/fa";
 export { FaChevronDown } from "react-icons/fa";
 export { IoMail } from "react-icons/io5";
+export { SiSolana } from "react-icons/si";
+export { PiCurrencyBtcFill } from "react-icons/pi";
+export { FaEthereum } from "react-icons/fa";
+export { SiLitecoin } from "react-icons/si";

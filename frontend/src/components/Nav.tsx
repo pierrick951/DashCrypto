@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import {tabsNavtype,tabsNavBottype} from'../types/TypeTabsNav'
+import { tabsNavtype, tabsNavBottype } from "../types/TypeTabsNav";
 import { NavLink } from "react-router-dom";
 import {
   IoHome,
@@ -10,22 +10,42 @@ import {
   TbLogout2,
   IoMail,
 } from "../index.icon";
-type Props = {};
+type Props = {
+  handClick: (index: number) => void;
+};
 
 const titleNav: string[] = ["CryptoDash", "🪙"];
-const tabsNav:tabsNavtype = [
-  { id: nanoid(), text: "Home", ico: <IoHome />, href: "/home" },
-  { id: nanoid(), text: "Dash", ico: <MdSpaceDashboard />, href: "/dash" },
-  { id: nanoid(), text: "News", ico: <TiNews />, href: "/news" },
-  { id: nanoid(), text: "Wallet", ico: <FaWallet />, href: "/wallet" },
-  { id: nanoid(), text: "Message", ico: <IoMail/>, href: "/message" },
+const tabsNav: tabsNavtype = [
+  { id: nanoid(), text: "Home", ico: <IoHome />, href: "/home", index: 0 },
+  {
+    id: nanoid(),
+    text: "Dash",
+    ico: <MdSpaceDashboard />,
+    href: "/dash",
+    index: 1,
+  },
+  { id: nanoid(), text: "News", ico: <TiNews />, href: "/news", index: 2 },
+  {
+    id: nanoid(),
+    text: "Wallet",
+    ico: <FaWallet />,
+    href: "/wallet",
+    index: 3,
+  },
+  {
+    id: nanoid(),
+    text: "Message",
+    ico: <IoMail />,
+    href: "/message",
+    index: 4,
+  },
 ];
-const tabsNavBottom:tabsNavBottype = [
+const tabsNavBottom: tabsNavBottype = [
   { id: nanoid(), text: "Setting", ico: <IoMdSettings /> },
   { id: nanoid(), text: "Log out", ico: <TbLogout2 /> },
 ];
 
-function Nav({}: Props) {
+function Nav({ handClick }: Props) {
   return (
     <div className="bg-slate-800 p-5 h-screen flex flex-col justify-between text-gray-200 text-lg">
       <div>
@@ -38,6 +58,7 @@ function Nav({}: Props) {
         <div className="  flex-flex-col h-auto space-y-4 ">
           {tabsNav.map((item) => (
             <NavLink
+              onClick={() => handClick(item.index)}
               className={({ isActive }) =>
                 `flex items-center gap-3  rounded-lg px-2 py-2  ${
                   isActive ? "bg-blue-500 " : ""

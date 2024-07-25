@@ -6,7 +6,7 @@ import Dash from "./layout/Dash";
 import Wallet from "./layout/Wallet";
 import MainLayout from "./layout/MainLayout";
 import News from "./layout/News";
-import Message from "./components/Message";
+import Message from "./layout/Message";
 
 function App() {
 

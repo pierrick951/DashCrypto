@@ -16,10 +16,10 @@ type Props = {
 function Menu({option2,option1}: Props) {
   return (
     <Mn>
-      <MenuButton colorScheme="blue" px={3} py={1} as={Button} rightIcon={<FaChevronDown />}>
+      <MenuButton colorScheme="blue"  px={3} py={1} as={Button} rightIcon={<FaChevronDown />}>
         <FaUser />
       </MenuButton>
-      <MenuList>
+      <MenuList zIndex={30}  minWidth="50px" >
         <MenuItem>{option1}</MenuItem>
         <MenuItem >{option2}</MenuItem>
       </MenuList>
