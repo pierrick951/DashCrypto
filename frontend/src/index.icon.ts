@@ -11,3 +11,4 @@ export { SiSolana } from "react-icons/si";
 export { PiCurrencyBtcFill } from "react-icons/pi";
 export { FaEthereum } from "react-icons/fa";
 export { SiLitecoin } from "react-icons/si";
+export { FaBox } from "react-icons/fa";

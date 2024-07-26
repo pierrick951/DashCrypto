@@ -46,7 +46,7 @@ function MainLayout(): JSX.Element {
         <div className="w-full p-5 flex-row flex bg-gray-800 z-20 fixed">
           <div className="flex flex-row gap-3  justify-between  w-full ">
           
-            <div className="text-gray-100 text-xl md:text-2xl  pl-[20%] font-semibold">{getCurrentText()}</div>
+            <div className="text-gray-100 text-xl md:text-2xl  pl-[26%] sm:pl-[24%] md:pl-[23%] lg:pl-[18%] xl:pl-[14%]  font-semibold">{getCurrentText()}</div>
            
             <div className="hidden md:flex flex-row gap-3">
               <Button content={signUp} />
