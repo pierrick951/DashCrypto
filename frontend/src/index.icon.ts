@@ -12,3 +12,6 @@ export { PiCurrencyBtcFill } from "react-icons/pi";
 export { FaEthereum } from "react-icons/fa";
 export { SiLitecoin } from "react-icons/si";
 export { FaBox } from "react-icons/fa";
+export { PiMoneyBold } from "react-icons/pi";
+export { SiCodeblocks } from "react-icons/si";
+export { AiFillThunderbolt } from "react-icons/ai";

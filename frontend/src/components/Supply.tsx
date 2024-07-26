@@ -1,21 +1,23 @@
-import axios from "axios";
+import axios,{AxiosResponse} from "axios";
 import { useEffect, useState } from "react";
 import { FaBox } from "../index.icon.ts";
+import CardDash from '../components/CardDash.tsx'
 const APIKEY = import.meta.env.VITE_CRYPTO_API_KEY;
 
 const Supply = () => {
   const [suply, setSuply] = useState<string | null>(null);
-  const titleSuplly: (string | JSX.Element)[] = ["ETH Supply", <FaBox />];
+  const titleSuplly:string ="ETH Supply";
+  const icon: JSX.Element = <FaBox />
   const getSuplly: () => Promise<void> = async () => {
     try {
-      const supplyResponse = await axios.get("https://api.etherscan.io/api", {
+      const supplyResponse:AxiosResponse<any, any> = await axios.get("https://api.etherscan.io/api", {
         params: {
           apikey: APIKEY,
           module: "stats",
           action: "ethsupply",
         },
       });
-      const response = supplyResponse.data;
+      const response: any = supplyResponse.data;
 
       if (response.status === "1") {
         const wei: bigint = BigInt(response.result);
@@ -24,13 +26,16 @@ const Supply = () => {
         const formattedSupply: string = new Intl.NumberFormat().format(
           Number(eth)
         );
-        setSuply(formattedSupply);
+        setSuply(formattedSupply + ' ⧫');
       } else {
         console.error("une erreur est survenue");
       }
 
-      console.log(response);
-    } catch (error) {}
+      
+    } catch (error) {
+
+        console.log(error,'une erreurest survenue')
+    }
   };
 
   useEffect(() => {
@@ -38,15 +43,7 @@ const Supply = () => {
   }, []);
 
   return (
-    <div className="bg-white rounded-xl p-4 max-w-xs mt-16 shadow-2xl mx-5">
-      <h2 className="flex flex-row font-semibold  text-slate-800 items-center  justify-between gap-2 py-2">
-        <span>{titleSuplly[0]}</span>
-        <span>{titleSuplly[1]}</span>
-      </h2>
-      <p className="text-xl font-semibold text-green-500">
-        {suply ? `${suply} ETH` : "Loading..."}
-      </p>
-    </div>
+   <CardDash  data={suply} title1={titleSuplly} title2={icon}/>
   );
 };
 export default Supply;
