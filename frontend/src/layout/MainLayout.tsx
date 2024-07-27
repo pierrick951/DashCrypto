@@ -37,7 +37,7 @@ function MainLayout(): JSX.Element {
     <div className="z-30  h-full">
       <Nav handClick={handleClick} />
     </div>
-    <div className=" overflow-x-hidden grid grid-rows-[auto,1fr] ml-[]">
+    <div className=" overflow-x-hidden grid grid-rows-[auto,1fr] ">
       <TopNav text={getCurrentText()}/>
       <div className="h-auto min-h-screen">{getCurrentComponent()}</div>
     </div>
