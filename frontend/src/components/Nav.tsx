@@ -47,7 +47,7 @@ const tabsNavBottom: tabsNavBottype = [
 
 function Nav({ handClick }: Props) {
   return (
-    <div className="bg-slate-800 p-5 h-screen flex flex-col justify-between text-gray-200 text-lg">
+    <div className="bg-gradient-to-bl from-blue-950 to-slate-900 p-5 h-screen flex flex-col justify-between text-gray-200 text-lg">
       <div>
         <div className="text-white  pb-10">
           <h1 className="flex flex-row font-semibold lg:text-xl px-2">

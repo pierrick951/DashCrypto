@@ -36,7 +36,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="w-full h-screen flex flex-col lg:justify-center lg:items-center overflow-auto p-3 overflow-x-hidden bg-gradient-to-tl from-blue-800 to-blue-700 pl-[26%] xl:pl-[15%] pt-16">
+    <div className="w-full h-screen flex flex-col lg:justify-center lg:items-center overflow-auto p-3 overflow-x-hidden bg-gradient-to-tl from-zinc-800 to-blue-700 ">
       <header className="text-center flex flex-col justify-center items-center">
         <h1 className="py-5 text-4xl md:text-4xl lg:text-6xl flex-row flex text-white font-bold text-center">
           <span>{titleHome[0]}</span>

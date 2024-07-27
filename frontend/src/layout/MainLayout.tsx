@@ -1,18 +1,14 @@
 import { useState } from "react";
 import { MainContentType } from "../types/TypeContent";
 
-import Button from "../components/Button";
-import ButtonGosth from "../components/ButtonGosth";
-import Menu from "../components/Menu";
 import Nav from "../components/Nav";
 import Home from "./Home";
 import Dash from "./Dash";
 import News from "./News";
 import Wallet from "./Wallet";
 import Message from "./Message";
+import TopNav from "../components/TopNav";
 
-const signUp: string = "Sign Up";
-const logIn: string = "Log In";
 
 const mainContent: MainContentType = [
   { comp: <Home />,text:'Home'},
@@ -37,29 +33,16 @@ function MainLayout(): JSX.Element {
   
 
   return (
-    <div className="flex flex-row  h-screen">
-      <div className=" z-30 fixed
-      ">
-        <Nav handClick={handleClick} />
-      </div>
-    <div className="w-screen ">
-        <div className="w-full p-5 flex-row flex bg-gray-800 z-20 fixed">
-          <div className="flex flex-row gap-3  justify-between  w-full ">
-          
-            <div className="text-gray-100 text-xl md:text-2xl  pl-[26%] sm:pl-[24%] md:pl-[23%] lg:pl-[18%] xl:pl-[14%]  font-semibold">{getCurrentText()}</div>
-           
-            <div className="hidden md:flex flex-row gap-3">
-              <Button content={signUp} />
-              <ButtonGosth content={logIn} />
-            </div>
-            <div className="md:hidden ">
-              <Menu option1={signUp} option2={logIn} />
-            </div>
-          </div>
-        </div>
-        <div className="h-full w-full ">{getCurrentComponent()}</div>
-      </div>
+    <div className="grid grid-cols-[auto,1fr] h-screen">
+    <div className="z-30  h-full">
+      <Nav handClick={handleClick} />
     </div>
+    <div className=" overflow-x-hidden grid grid-rows-[auto,1fr] ml-[]">
+      <TopNav text={getCurrentText()}/>
+      <div className="h-auto min-h-screen">{getCurrentComponent()}</div>
+    </div>
+  </div>
+  
   );
 }
 export default MainLayout;

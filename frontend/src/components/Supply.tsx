@@ -26,7 +26,7 @@ const Supply = () => {
         const formattedSupply: string = new Intl.NumberFormat().format(
           Number(eth)
         );
-        setSuply(formattedSupply + ' ⧫');
+        setSuply(formattedSupply);
       } else {
         console.error("une erreur est survenue");
       }
