@@ -34,12 +34,12 @@ function MainLayout(): JSX.Element {
 
   return (
     <div className="grid grid-cols-[auto,1fr] h-screen">
-    <div className="z-30  h-full">
+    <div className="z-30  h-full ">
       <Nav handClick={handleClick} />
     </div>
     <div className=" overflow-x-hidden grid grid-rows-[auto,1fr] ">
       <TopNav text={getCurrentText()}/>
-      <div className="h-auto min-h-screen">{getCurrentComponent()}</div>
+      <div className="h-auto min-h-screen w-full">{getCurrentComponent()}</div>
     </div>
   </div>
   

@@ -8,8 +8,8 @@ type Props = {};
 function Dash({}: Props) {
 
   return (
-    <div className=" w-full h-auto min-h-screen  bg-zinc-800 flex flex-col-reverse  p-10  gap-5  xl:flex-row">
-      <div className="flex flex-col  lg:flex-row xl:flex-col ">
+    <div className=" w-full h-auto min-h-screen  bg-zinc-800 flex flex-col-reverse justify-center items-center  p-5 gap-5  ">
+      <div className="flex flex-col justify-center items-center lg:flex-row px-5 w-full  gap-2 ">
        <Supply/>
        <PriceEth/>
        <BlockEth/>
