@@ -48,7 +48,7 @@ type Props = {};
 function ArticleLatest({}: Props) {
   return (
     <Card h={530} position={{ base: 'static', lg: 'sticky' }} top={0} className=" lg:mt-10 w-full  lg:max-w-md ">
-      <CardHeader className="text-center md:text-start">
+      <CardHeader className="">
         <Heading size="md">{titleLatest}</Heading>
       </CardHeader>
 
@@ -63,7 +63,7 @@ function ArticleLatest({}: Props) {
               >
                 {item.title}
               </Heading>
-              <div className="flex flex-row items-center justify-center gap-2 py-2">
+              <div className="flex flex-row items-center justify-start gap-2 py-2">
                 <Image
                     src={item.img}
                     alt={item.title}
