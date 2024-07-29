@@ -28,7 +28,8 @@ function GasPrice() {
           },
         }
       );
-      const dataGas = gasResponse.data.result;
+      const dataGas: any = gasResponse.data.result;
+  
       setGasData(dataGas);
     } catch (error) {
       console.log("une erreur est survenu", error);
@@ -37,6 +38,8 @@ function GasPrice() {
   useEffect(() => {
     getGasPrice();
   }, []);
+  console.log('valeur de GasPrice', gasData)
+  console.log(typeof gasData)
   return (
     <CardDash   data={gasData} title1={title} title2={icon}/>
   );
