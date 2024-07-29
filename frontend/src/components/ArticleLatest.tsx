@@ -47,8 +47,8 @@ const contentArticle: ArticleType = [
 type Props = {};
 function ArticleLatest({}: Props) {
   return (
-    <Card h={500} position="sticky" top={0} className=" lg:mt-10 w-full  lg:max-w-md ">
-      <CardHeader>
+    <Card h={530} position={{ base: 'static', lg: 'sticky' }} top={0} className=" lg:mt-10 w-full  lg:max-w-md ">
+      <CardHeader className="text-center md:text-start">
         <Heading size="md">{titleLatest}</Heading>
       </CardHeader>
 
