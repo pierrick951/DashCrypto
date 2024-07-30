@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
 import { buttonContentType } from "../types/TypeTabsNav";
 import metamask from "../assets/Metamask.png";
-import crypto from "../assets/Crypto.com_logo.webp";
+
 
 import {
   Card,
@@ -18,7 +18,7 @@ type Props = {
 
 const buttonContent: buttonContentType = [
   { id: nanoid(), text: "Metamask", image: metamask },
-  { id: nanoid(), text: "Crypto.com", image: crypto },
+
 ];
 
 function WalletLeft({ event }: Props) {
