@@ -1,4 +1,4 @@
-export type tabsNavBottype = {
+export type tabstype = {
   id: string;
   text: string;
   ico: JSX.Element;
@@ -11,3 +11,11 @@ export type tabsNavtype = {
   href: string;
   index: number;
 }[];
+
+
+
+export type buttonContentType= {
+  id: string;
+  text: string;
+  image: string;
+}[]
