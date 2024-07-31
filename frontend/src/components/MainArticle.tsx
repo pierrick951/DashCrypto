@@ -45,8 +45,8 @@ function MainArticle({}: Props) {
       </h1>
 
       {contentMainArticle.map((item) => (
-        <div className="py-2 ">
-          <Card key={item.id}>
+        <div key={item.id} className="py-2 ">
+          <Card >
             <CardHeader>
               <Heading size="md" className="text-center md:text-start">
                 {item.title}

@@ -34,7 +34,7 @@ function PriceEth() {
   useEffect(() => {
     getPrice();
   },[]);
-  console.log(price);
+
   return (
     <CardDash  data={price} title1={titlePrice} title2={icon}/>
    );

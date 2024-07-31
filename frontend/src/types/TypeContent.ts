@@ -8,4 +8,10 @@ export type ArticleType = {
   title: string;
   text: string;
   img: string;
-}[]
+}[];
+
+export type buttonType = {
+  id: string;
+  text: string;
+  color: string;
+}[];
