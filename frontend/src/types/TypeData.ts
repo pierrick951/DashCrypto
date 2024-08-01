@@ -11,3 +11,11 @@ export type SettingCardType = {
   key: keyof CryptoPrices;
 };
 
+export type Ethereum = {
+  request: (request: { method: string }) => Promise<any>;
+};
+
+declare global{
+interface Window  {
+  ethereum?: Ethereum;
+}}

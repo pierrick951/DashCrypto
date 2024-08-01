@@ -26,9 +26,10 @@ const buttonAction: buttonType = [
 type Props = {
 
     event: () => void;
-    account:string | null
+    account:string | null;
+    balance:string;
 }
-function WalletRigth({event,account}: Props) {
+function WalletRigth({event,account,balance}: Props) {
   return (
     <div className="w-full h-auto flex flex-col lg:flex-row p-3 gap-3 justify-center items-start">
           <div className="bg-white shadow-xl rounded lg:w-[80%] min-h-[300px] flex flex-col justify-between h-auto p-4">
@@ -56,6 +57,7 @@ function WalletRigth({event,account}: Props) {
           <div className="flex-col flex w-auto lg:max-w-md items-center">
             <PriceEth />
             <CardDash title1={title1} title2={title2}  />
+            {balance}
             <Button
               onClick={event}
               className=" flex flex-row w-full  gap-2 py-2 px-5"
