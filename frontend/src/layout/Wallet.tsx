@@ -1,7 +1,9 @@
 import Web3 from "web3";
 import { Toaster, toast } from "sonner";
+import { BalanceContext } from "../context/ContextBal";
+import { valueBalanceType } from '../types/TypeContent';
 import { useState } from "react";
-import { Ethereum  } from "../types/TypeData"
+import { Ethereum } from "../types/TypeData";
 import WalletLeft from "../components/WalletLeft";
 import WalletRigth from "../components/WalletRigth";
 
@@ -13,12 +15,13 @@ function Wallet({}: Props) {
 
   const [balance, setBalance] = useState<string>("");
 
- 
+  const valueBalance: valueBalanceType = {
+    balance: balance,
+  };
 
   const handleLogIn = async () => {
     if (window.ethereum) {
       try {
-       
         await window.ethereum.request({ method: "eth_requestAccounts" });
         const web3 = new Web3(window.ethereum as Ethereum);
 
@@ -55,14 +58,20 @@ function Wallet({}: Props) {
   };
 
   return (
-    <div className="w-full h-auto min-h-screen  bg-zinc-800 p-3 flex items-center justify-center">
-      <Toaster position="bottom-right" richColors />
-      {walletConected ? (
-        <WalletRigth event={() => handleLogout()} account={account} balance={balance} />
-      ) : (
-        <WalletLeft event={() => handleLogIn()} />
-      )}
-    </div>
+    <BalanceContext.Provider  value={valueBalance}>
+      <div className="w-full h-auto min-h-screen  bg-zinc-800 p-3 flex items-center justify-center">
+        <Toaster position="bottom-right" richColors />
+        {walletConected ? (
+          <WalletRigth
+            event={() => handleLogout()}
+            account={account}
+            balance={balance}
+          />
+        ) : (
+          <WalletLeft event={() => handleLogIn()} />
+        )}
+      </div>
+    </BalanceContext.Provider>
   );
 }
 export default Wallet;

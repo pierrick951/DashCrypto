@@ -15,3 +15,8 @@ export type buttonType = {
   text: string;
   color: string;
 }[];
+
+
+export type valueBalanceType = {
+  balance:string
+}

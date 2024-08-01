@@ -2,11 +2,11 @@ type Props = {
   title1: string;
   title2: JSX.Element;
   data?: string | null;
-  data2?: {
-    ether: string;
-  };
+  
 };
-function bodyCard({ title1, title2, data, data2}: Props) {
+
+
+function bodyCard({ title1, title2, data,}: Props) {
   return (
     <div className="bg-white rounded p-4 w-full mb-5 shadow-2xl shadow-zinc-800">
       <h2 className="flex flex-row font-semibold  text-slate-800 items-center  justify-between gap-2 py-2">
@@ -15,7 +15,7 @@ function bodyCard({ title1, title2, data, data2}: Props) {
       </h2>
       <p className="text-xl font-semibold text-lime-500">
         {data !== null ? `${data}` : "Loading..."}
-        {data2  !== undefined ?  `${data2.ether}`: ""}
+        
       </p>
     </div>
   );
