@@ -5,6 +5,7 @@ import { FaBalanceScale } from "../index.icon";
 import { buttonType } from "../types/TypeContent";
 import { useContext } from "react";
 import { BalanceContext } from "../context/ContextBal";
+import { Card,CardBody,Text } from "@chakra-ui/react";
 
 import PriceEth from "../components/PriceEth";
 import CardDash from "../components/CardDash";
@@ -45,8 +46,17 @@ function WalletRigth({ event, account, transaction }: Props) {
               {contentWallet[1]}
             </h1>
             <hr />
-            <div className="w-full h-auto p-2 flex  items-center justify-center ">
-              {transaction.length === 0 ? (
+            <div className="w-full h-[400px] overflow-y-scroll">
+              <ul className="flex flex-row px-3">
+                <Card w="100%" className="my-2 ">
+                  <CardBody>
+                    <Text>
+                    From: <span>from</span> | To: <span>to</span> | Value: <span>10</span>
+                    </Text>
+                  </CardBody>
+                </Card>
+              </ul>
+              {/* {transaction.length === 0 ? (
                 <p>{contentWallet[4]}</p>
               ) : (
                 <ul>
@@ -57,11 +67,11 @@ function WalletRigth({ event, account, transaction }: Props) {
                     </li>
                   ))}
                 </ul>
-              )}
+              )} */}
             </div>
           </div>
         </div>
-        <div className="flex flex-row gap-3 justify-center ">
+        <div className="flex flex-row gap-3 justify-center pt-3 ">
           {buttonAction.map((item) => (
             <Button
               key={item.id}
