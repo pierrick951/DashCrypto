@@ -30,7 +30,7 @@ function WalletLeft({ event }: Props) {
         {buttonContent.map((item) => (
           <Button
             onClick={event}
-            className=" flex flex-row gap-2 py-2 px-5"
+            className=" flex flex-row gap-2 py-2 px-5 animate-pulse"
             key={item.id}
             colorScheme="blue"
           >

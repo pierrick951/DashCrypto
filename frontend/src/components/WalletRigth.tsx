@@ -26,7 +26,10 @@ function WalletRigth({ event, account, transaction }: Props) {
     "Sell",
     "Buy",
     "No transactions currently",
-    "Account",
+    "Account :",
+    "To: ",
+    "From: ",
+    "Value: "
   ];
   const buttonAction: buttonType = [
     { id: nanoid(), text: contentWallet[3], color: "green" },
@@ -35,7 +38,7 @@ function WalletRigth({ event, account, transaction }: Props) {
 
   return (
     <div className="w-full h-auto flex flex-col lg:flex-row  gap-3 justify-center items-start">
-      <div className="bg-white shadow-xl rounded w-full lg:w-[40%] min-h-[300px] flex flex-col justify-between h-auto p-4">
+      <div className="bg-gradient-to-br from-white to-gray-100 shadow-xl rounded w-full lg:w-[40%] min-h-[300px] flex flex-col justify-between h-auto p-4">
         <div className="flex flex-col gap-2">
           <h2 className=" flex flex-row gap-2 font-semibold text-slate-800">
             <span>{contentWallet[5]}</span>
@@ -46,28 +49,28 @@ function WalletRigth({ event, account, transaction }: Props) {
               {contentWallet[1]}
             </h1>
             <hr />
-            <div className="w-full h-[400px] overflow-y-scroll">
-              <ul className="flex flex-row px-3">
-                <Card w="100%" className="my-2 ">
+            <div className="w-full lg:h-[400px] overflow-y-scroll">
+           
+              {transaction.length === 0 ? (
+                <div className="w-full h-full flex justify-center items-center">
+                  <p className="md:text-xl text-zinc-800 animate-pulse">{contentWallet[4]}</p>
+                </div>
+              ) : (
+                <ul className="flex flex-row px-3">
+                  {" "}
+                  {transaction.map((tx) => (
+                  <Card w="100%" className="my-2 " key={tx.hash}>
                   <CardBody>
-                    <Text>
-                    From: <span>from</span> | To: <span>to</span> | Value: <span>10</span>
+                    <Text className="text-zinc-800 font-semibold flex justify-around">
+                    <p>{contentWallet[7]} <span className="font-semibold text-orange-500"> {tx.from} </span></p> | <p>{contentWallet[6]}<span className="font-semibold text-blue-500">{tx.to} </span></p> | <p>{contentWallet[8]}<span className="font-semibold text-lime-500">{tx.value}</span></p>
                     </Text>
                   </CardBody>
                 </Card>
-              </ul>
-              {/* {transaction.length === 0 ? (
-                <p>{contentWallet[4]}</p>
-              ) : (
-                <ul>
-                  {" "}
-                  {transaction.map((tx) => (
-                    <li key={tx.hash}>
-                      From: {tx.from} | To: {tx.to} | Value: {tx.value}
-                    </li>
+                
+                     
                   ))}
                 </ul>
-              )} */}
+              )}
             </div>
           </div>
         </div>
