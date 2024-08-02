@@ -38,8 +38,7 @@ function GasPrice() {
   useEffect(() => {
     getGasPrice();
   }, []);
-  console.log('valeur de GasPrice', gasData)
-  console.log(typeof gasData)
+
   return (
     <CardDash   data={gasData} title1={title} title2={icon}/>
   );

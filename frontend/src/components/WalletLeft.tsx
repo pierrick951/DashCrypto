@@ -2,15 +2,7 @@ import { nanoid } from "nanoid";
 import { buttonContentType } from "../types/TypeTabsNav";
 import metamask from "../assets/Metamask.png";
 
-
-import {
-  Card,
-  CardHeader,
-  Heading,
-  Button,
-  CardFooter,
-  Text,
-} from "@chakra-ui/react";
+import { Card, CardHeader, Button, CardFooter, Text } from "@chakra-ui/react";
 
 type Props = {
   event: () => void;
@@ -18,17 +10,20 @@ type Props = {
 
 const buttonContent: buttonContentType = [
   { id: nanoid(), text: "Metamask", image: metamask },
-
 ];
 
 function WalletLeft({ event }: Props) {
   const contentWallet: string[] = ["Connect your wallet", "Log out"];
   return (
-    <Card align="center" className="max-w-xl h-auto text-">
+    <Card
+      align="center"
+      className="max-w-xl h-44
+     "
+    >
       <CardHeader>
-        <Heading size="lg" h={50} className="text-slate-800">
+        <h2 className="text-slate-800 text-2xl xl:text-3xl font-semibold  text-center">
           {contentWallet[0]}
-        </Heading>
+        </h2>
       </CardHeader>
 
       <CardFooter className=" flex flex-col gap-2 lg:flex-row">

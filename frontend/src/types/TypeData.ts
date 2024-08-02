@@ -19,3 +19,12 @@ declare global{
 interface Window  {
   ethereum?: Ethereum;
 }}
+
+
+
+export interface TransactionType { 
+  from:string;
+  to:string;
+  value:string;
+  hash:string;
+}

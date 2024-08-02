@@ -35,7 +35,7 @@ function BlockEth({}: Props) {
     getBlockData()
 },[])
 
-console.log(typeof blockData)
+
 
   return (
   <CardDash  data={blockData} title1={titlePrice} title2={icon}/>
