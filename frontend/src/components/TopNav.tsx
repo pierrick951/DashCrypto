@@ -22,7 +22,7 @@ function TopNav({ text }: Props) {
         <div className=" md:flex flex-row gap-3">
           {user !== null ? (
             <img
-              className="w-10 rounded-full"
+              className="w-8 rounded-full"
               src={user.user?.photoURL || "default-profile-pic-url"}
               alt=""
             />
