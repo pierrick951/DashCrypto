@@ -2,6 +2,7 @@ import { nanoid } from "nanoid";
 import { tabsNavtype, tabstype } from "../types/TypeTabsNav";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../context/Contextlog";
+
 import {
   IoHome,
   MdSpaceDashboard,
@@ -42,6 +43,7 @@ function Nav({ handClick }: Props) {
   ];
   return (
     <div className="bg-gradient-to-bl from-blue-950 to-slate-900 p-5 h-screen flex flex-col justify-between text-gray-200 text-lg">
+ 
       <div>
         <div className="text-white  pb-10">
           <h1 className="flex flex-row font-semibold lg:text-xl px-2">
@@ -70,6 +72,7 @@ function Nav({ handClick }: Props) {
       <div className="space-y-3 text-md">
         {tabsNavBottom.map((item) => (
           <button
+          onClick={item.click}
             className="flex flex-row gap-3 px-3 items-center justify-center  "
             key={item.id}
           >

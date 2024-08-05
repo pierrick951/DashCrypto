@@ -1,5 +1,5 @@
 import Web3 from "web3";
-import { Toaster, toast } from "sonner";
+import { toast } from "sonner";
 import { BalanceContext } from "../context/ContextBal";
 import { valueBalanceType } from "../types/TypeContent";
 import { TransactionType } from "../types/TypeData";
@@ -74,7 +74,7 @@ function Wallet({}: Props) {
   return (
     <BalanceContext.Provider value={valueBalance}>
       <div className="w-full h-auto min-h-screen  bg-zinc-800 p-3 flex justify-center lg:items-center">
-        <Toaster position="bottom-right" richColors />
+      
         {walletConected ? (
           <WalletRigth event={() => handleLogout()} account={account}  transaction={transaction} />
         ) : (

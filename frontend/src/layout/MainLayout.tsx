@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { MainContentType } from "../types/TypeContent";
+import { Toaster } from "sonner";
+
 
 import Nav from "../components/Nav";
 import Home from "./Home";
@@ -37,6 +39,7 @@ function MainLayout(): JSX.Element {
           {getCurrentComponent()}
         </div>
       </div>
+           <Toaster position="bottom-right" richColors />
     </div>
   );
 }

@@ -22,15 +22,20 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<UserCredential | null>(null);
 
   const login = async () => {
-    const result = await signInWithGoogle();
-    setUser(result);
-    toast.success("Connexion réussie");
+    try {
+      const result = await signInWithGoogle();
+      setUser(result);
+      toast.success("Login successful");
+    } catch (error) {
+      toast.error('Login failed')
+    }
+   
   };
 
   const logout = async () => {
     await firebaseSignOut(auth);
     setUser(null);
-    toast.error("Déconnexion réussie");
+    toast.info("Logout successful");
   };
 
   return (

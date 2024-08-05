@@ -15,3 +15,4 @@ export { PiMoneyBold } from "react-icons/pi";
 export { SiCodeblocks } from "react-icons/si";
 export { AiFillThunderbolt } from "react-icons/ai";
 export { FaBalanceScale } from "react-icons/fa";
+export { FcGoogle } from "react-icons/fc";
