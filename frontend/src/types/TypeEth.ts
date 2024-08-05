@@ -7,7 +7,7 @@ export interface Ethereum {
   
   declare global {
     interface Window {
-      ethereum?: Ethereum;
+      ethereum?: Ethereum | undefined;
     }
   }
   

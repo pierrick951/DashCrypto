@@ -1,5 +1,7 @@
 import { nanoid } from "nanoid";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+
 import {
   SiSolana,
   PiCurrencyBtcFill,
@@ -8,7 +10,6 @@ import {
 } from "../index.icon";
 import { SettingCardType, CryptoPrices } from "../types/TypeData";
 import axios from "axios";
-import { motion } from "framer-motion";
 const API_URL =
   "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,litecoin,solana&vs_currencies=usd";
 const titleHome = [

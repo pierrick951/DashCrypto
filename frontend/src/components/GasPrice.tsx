@@ -28,11 +28,12 @@ function GasPrice() {
           },
         }
       );
-      const dataGas: any = gasResponse.data.result;
-  
-      setGasData(dataGas);
+      const dataGas = gasResponse.data.result;
+      const dataTostring = parseInt(dataGas, 16).toString(); 
+      
+      setGasData(dataTostring);
     } catch (error) {
-      console.log("une erreur est survenu", error);
+
     }
   };
   useEffect(() => {

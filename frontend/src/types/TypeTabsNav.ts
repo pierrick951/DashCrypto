@@ -2,6 +2,7 @@ export type tabstype = {
   id: string;
   text: string;
   ico: JSX.Element;
+  click: () => Promise<void>;
 }[];
 
 export type tabsNavtype = {
@@ -12,10 +13,8 @@ export type tabsNavtype = {
   index: number;
 }[];
 
-
-
-export type buttonContentType= {
+export type buttonContentType = {
   id: string;
   text: string;
   image: string;
-}[]
+}[];

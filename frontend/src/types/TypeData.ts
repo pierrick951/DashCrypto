@@ -15,10 +15,6 @@ export type Ethereum = {
   request: (request: { method: string }) => Promise<any>;
 };
 
-declare global{
-interface Window  {
-  ethereum?: Ethereum;
-}}
 
 
 
@@ -27,4 +23,15 @@ export interface TransactionType {
   to:string;
   value:string;
   hash:string;
+}
+
+
+export type firebaseConfigType = {
+  apiKey: string;
+  authDomain: string;
+  projectId: string;
+  storageBucket: string;
+  messagingSenderId: string;
+  appId: string;
+  measurementId: string;
 }

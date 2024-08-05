@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid";
-import { tabsNavtype, tabsNavBottype } from "../types/TypeTabsNav";
+import { tabsNavtype, tabstype } from "../types/TypeTabsNav";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../context/Contextlog";
 import {
   IoHome,
   MdSpaceDashboard,
@@ -8,7 +9,6 @@ import {
   FaWallet,
   IoMdSettings,
   TbLogout2,
-  IoMail,
 } from "../index.icon";
 type Props = {
   handClick: (index: number) => void;
@@ -32,20 +32,14 @@ const tabsNav: tabsNavtype = [
     href: "/wallet",
     index: 3,
   },
-  {
-    id: nanoid(),
-    text: "Message",
-    ico: <IoMail />,
-    href: "/message",
-    index: 4,
-  },
-];
-const tabsNavBottom: tabsNavBottype = [
-  { id: nanoid(), text: "Setting", ico: <IoMdSettings /> },
-  { id: nanoid(), text: "Log out", ico: <TbLogout2 /> },
 ];
 
 function Nav({ handClick }: Props) {
+  const { logout } = useAuth();
+  const tabsNavBottom: tabstype = [
+    { id: nanoid(), text: "Setting", ico: <IoMdSettings />, click: logout },
+    { id: nanoid(), text: "Log out", ico: <TbLogout2 />, click: logout },
+  ];
   return (
     <div className="bg-gradient-to-bl from-blue-950 to-slate-900 p-5 h-screen flex flex-col justify-between text-gray-200 text-lg">
       <div>

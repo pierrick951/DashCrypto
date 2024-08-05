@@ -21,7 +21,7 @@ function Wallet({}: Props) {
   };
 
   const handleLogIn: () => Promise<void> = async () => {
-    if (window.ethereum) {
+    if (window.ethereum && window.ethereum.request) {
       try {
         await window.ethereum.request({ method: "eth_requestAccounts" });
         const web3 = new Web3(window.ethereum as Ethereum);
