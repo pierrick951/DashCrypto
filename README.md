@@ -40,7 +40,8 @@ Also using **Chakra UI** 🌟, which I love for its time-saving features, and **
 Blockchain and cryptocurrencies are very intriguing to me, and I have started exploring this world 🔍. I find it to be a fascinating field with a lot of potential 🚀.
 
 It is a field I enjoy, and I aspire to work in the area of dApps and Web3 (frontend/solidity) 💼.
-
+<br><br>
+![Dashboard Screenshot](./assets/screendash.png)
 ### Contact
 
 - [Website](https://bento.me/etuve) 🌐
