@@ -17,7 +17,7 @@ function WalletLeft({ event }: Props) {
   return (
     <Card
       align="center"
-      className="max-w-xl h-44
+      className="max-w-xl h-44 lg:h-auto
      "
     >
       <CardHeader>
@@ -25,6 +25,7 @@ function WalletLeft({ event }: Props) {
           {contentWallet[0]}
         </h2>
       </CardHeader>
+      
 
       <CardFooter className=" flex flex-col gap-2 lg:flex-row">
         {buttonContent.map((item) => (
