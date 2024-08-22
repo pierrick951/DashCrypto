@@ -6,7 +6,6 @@ import { useAuth } from "../context/Contextlog";
 import {
   IoHome,
   MdSpaceDashboard,
-  TiNews,
   FaWallet,
   IoMdSettings,
   TbLogout2,
@@ -15,7 +14,7 @@ type Props = {
   handClick: (index: number) => void;
 };
 
-const titleNav: string[] = ["CryptoDash", "🪙"];
+const titleNav: string[] = ["Yuzu", "🍋"];
 const tabsNav: tabsNavtype = [
   { id: nanoid(), text: "Home", ico: <IoHome />, href: "/home", index: 0 },
   {
@@ -25,13 +24,12 @@ const tabsNav: tabsNavtype = [
     href: "/dash",
     index: 1,
   },
-  { id: nanoid(), text: "News", ico: <TiNews />, href: "/news", index: 2 },
   {
     id: nanoid(),
     text: "Wallet",
     ico: <FaWallet />,
     href: "/wallet",
-    index: 3,
+    index: 2,
   },
 ];
 
@@ -42,11 +40,11 @@ function Nav({ handClick }: Props) {
     { id: nanoid(), text: "Log out", ico: <TbLogout2 />, click: logout },
   ];
   return (
-    <div className="bg-gradient-to-bl from-blue-950 to-slate-900 p-5 h-screen flex flex-col justify-between text-gray-200 text-lg">
+    <div className="bg-gradient-to-bl from-lime-950 to-lime-900 p-5 h-screen flex flex-col justify-between text-gray-200 text-lg">
  
       <div>
         <div className="text-white  pb-10">
-          <h1 className="flex flex-row font-semibold lg:text-xl px-2">
+          <h1 className="flex flex-row font-bold lg:text-xl px-2">
             <span className="hidden md:block">{titleNav[0]}</span>
             <span>{titleNav[1]}</span>
           </h1>
@@ -57,7 +55,7 @@ function Nav({ handClick }: Props) {
               onClick={() => handClick(item.index)}
               className={({ isActive }) =>
                 `flex items-center gap-3  rounded-lg px-2 py-2  ${
-                  isActive ? "bg-blue-500 " : ""
+                  isActive ? "bg-white/30 " : ""
                 }`
               }
               key={item.id}
