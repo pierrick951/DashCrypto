@@ -40,7 +40,7 @@ function Nav({ handClick }: Props) {
     { id: nanoid(), text: "Log out", ico: <TbLogout2 />, click: logout },
   ];
   return (
-    <div className="bg-gradient-to-bl from-lime-950 to-lime-900 p-5 h-screen flex flex-col justify-between text-gray-200 text-lg">
+    <div className="bg-gradient-to-t from-lime-700 to-lime-900 p-5 h-screen flex flex-col justify-between text-gray-200 text-lg">
  
       <div>
         <div className="text-white  pb-10">
