@@ -1,5 +1,4 @@
 import { nanoid } from "nanoid";
-import { TransactionType } from "../types/TypeData";
 import { Button } from "@chakra-ui/react";
 import { FaBalanceScale } from "../index.icon";
 import { buttonType } from "../types/TypeContent";
@@ -13,10 +12,9 @@ import CardDash from "../components/CardDash";
 type Props = {
   event: () => void;
   account: string | null;
-  transaction: TransactionType[];
 };
 
-function WalletRigth({ event, account, transaction }: Props) {
+function WalletRigth({}: Props) {
   const { balance } = useContext(BalanceContext);
   const title1: string = "Balance";
   const title2: JSX.Element = <FaBalanceScale />;
@@ -42,7 +40,7 @@ function WalletRigth({ event, account, transaction }: Props) {
         <div className="flex flex-col gap-2">
           <h2 className=" flex flex-row gap-2 font-semibold text-slate-800">
             <span>{contentWallet[5]}</span>
-            <span>{account}</span>
+            <span>acount</span>
           </h2>
           <div>
             <h1 className="text-slate-800 text-xl font-semibold">

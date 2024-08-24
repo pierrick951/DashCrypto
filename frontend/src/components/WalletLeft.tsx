@@ -6,9 +6,6 @@ import { Card, CardHeader, Button, CardFooter, Text } from "@chakra-ui/react";
 
 
 
-const buttonContent: buttonContentType = [
-  { id: nanoid(), text: "Metamask", image: metamask },
-];
 
 function WalletLeft() {
   const contentWallet: string[] = ["Connect your wallet", "Log out"];
@@ -26,17 +23,7 @@ function WalletLeft() {
       
 
       <CardFooter className=" flex flex-col gap-2 lg:flex-row">
-        {buttonContent.map((item) => (
-          <Button
-            
-            className=" flex flex-row gap-2 py-2 px-5 animate-pulse"
-            key={item.id}
-            colorScheme="blue"
-          >
-            <img className="h-full" src={item.image} alt={item.text} />
-            <Text>{item.text}</Text>
-          </Button>
-        ))}
+      
       </CardFooter>
     </Card>
   );

@@ -16,4 +16,5 @@ export type buttonContentType = {
   id: string;
   text: string;
   image: string;
+
 }[];
