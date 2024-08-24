@@ -17,21 +17,7 @@ export type Ethereum = {
 
 
 
-
-export interface TransactionType { 
-  from:string;
-  to:string;
-  value:string;
-  hash:string;
-}
-
-
-export type firebaseConfigType = {
-  apiKey: string;
-  authDomain: string;
-  projectId: string;
-  storageBucket: string;
-  messagingSenderId: string;
-  appId: string;
-  measurementId: string;
-}
+export type buttonContentType ={
+  text: string;
+  image: string;
+}[]

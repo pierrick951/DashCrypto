@@ -1,7 +1,6 @@
 import { nanoid } from "nanoid";
 import { tabsNavtype, tabstype } from "../types/TypeTabsNav";
 import { NavLink } from "react-router-dom";
-import { useAuth } from "../context/Contextlog";
 
 import {
   IoHome,
@@ -34,13 +33,12 @@ const tabsNav: tabsNavtype = [
 ];
 
 function Nav({ handClick }: Props) {
-  const { logout } = useAuth();
   const tabsNavBottom: tabstype = [
-    { id: nanoid(), text: "Setting", ico: <IoMdSettings />, click: logout },
-    { id: nanoid(), text: "Log out", ico: <TbLogout2 />, click: logout },
+    { id: nanoid(), text: "Setting", ico: <IoMdSettings /> },
+    { id: nanoid(), text: "Log out", ico: <TbLogout2 />},
   ];
   return (
-    <div className="bg-gradient-to-t from-lime-700 to-lime-900 p-5 h-screen flex flex-col justify-between text-gray-200 text-lg">
+    <div className="bg-gradient-to-br from-zinc-900 to-zinc-950 p-5 h-screen flex flex-col justify-between text-gray-200 text-lg">
  
       <div>
         <div className="text-white  pb-10">
@@ -55,7 +53,7 @@ function Nav({ handClick }: Props) {
               onClick={() => handClick(item.index)}
               className={({ isActive }) =>
                 `flex items-center gap-3  rounded-lg px-2 py-2  ${
-                  isActive ? "bg-white/30 " : ""
+                  isActive ? "bg-lime-500/50 " : ""
                 }`
               }
               key={item.id}
@@ -70,7 +68,6 @@ function Nav({ handClick }: Props) {
       <div className="space-y-3 text-md">
         {tabsNavBottom.map((item) => (
           <button
-          onClick={item.click}
             className="flex flex-row gap-3 px-3 items-center justify-center  "
             key={item.id}
           >

@@ -4,15 +4,13 @@ import metamask from "../assets/Metamask.png";
 
 import { Card, CardHeader, Button, CardFooter, Text } from "@chakra-ui/react";
 
-type Props = {
-  event: () => void;
-};
+
 
 const buttonContent: buttonContentType = [
   { id: nanoid(), text: "Metamask", image: metamask },
 ];
 
-function WalletLeft({ event }: Props) {
+function WalletLeft() {
   const contentWallet: string[] = ["Connect your wallet", "Log out"];
   return (
     <Card
@@ -30,7 +28,7 @@ function WalletLeft({ event }: Props) {
       <CardFooter className=" flex flex-col gap-2 lg:flex-row">
         {buttonContent.map((item) => (
           <Button
-            onClick={event}
+            
             className=" flex flex-row gap-2 py-2 px-5 animate-pulse"
             key={item.id}
             colorScheme="blue"

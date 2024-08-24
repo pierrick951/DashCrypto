@@ -30,7 +30,7 @@ function MainLayout(): JSX.Element {
       </div>
       <div className=" overflow-x-hidden grid grid-rows-[auto,1fr] ">
         <TopNav/>
-        <div className="h-auto min-h-screen min-w-full">
+        <div className="h-auto min-h-screen min-w-full ">
           {getCurrentComponent()}
         </div>
       </div>

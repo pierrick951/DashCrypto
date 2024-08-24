@@ -17,6 +17,3 @@ export type buttonType = {
 }[];
 
 
-export type valueBalanceType = {
-  balance:string
-}

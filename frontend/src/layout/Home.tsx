@@ -43,7 +43,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="w-full h-screen flex flex-col lg:justify-center lg:items-center overflow-auto p-3 overflow-x-hidden bg-gradient-to-tl bg-gray-200 ">
+    <div className="w-full h-screen flex flex-col lg:justify-center lg:items-center overflow-auto p-3 overflow-x-hidden bg-gradient-to-tl bg-gray-50 ">
       <header className="text-center flex flex-col justify-center items-center">
         <MotionH1
           className="py-5 text-4xl md:text-4xl lg:text-6xl flex-row flex text-lime-500 font-bold text-center"

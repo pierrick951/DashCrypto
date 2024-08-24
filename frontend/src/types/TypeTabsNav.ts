@@ -2,7 +2,6 @@ export type tabstype = {
   id: string;
   text: string;
   ico: JSX.Element;
-  click: () => Promise<void>;
 }[];
 
 export type tabsNavtype = {
