@@ -3,7 +3,6 @@
 ### Introduction
 
 This project is a crypto dashboard that allows you to visualize cryptocurrency data in real-time. I focused on Ethereum for the dashboard section. <br><br>
-![Dashboard Screenshot](./assets/screenshot.png)
 ### Features
 
 - **Real-time view of the most popular cryptocurrencies** (ETH, LTC, SOL, BTC) 📊.
@@ -20,8 +19,6 @@ This project is a crypto dashboard that allows you to visualize cryptocurrency d
   - Buy or sell Ether 💸
 
 <br><br>
-![Dashboard Screenshot](./assets/screenwallet.png)
-### Stack
 
 <img align="left" alt="solidity" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/solidity/solidity-original.svg"/> 
 <img align="left" alt="typescript" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"/> 
@@ -41,7 +38,6 @@ Blockchain and cryptocurrencies are very intriguing to me, and I have started ex
 
 It is a field I enjoy, and I aspire to work in the area of dApps and Web3 (frontend/solidity) 💼.
 <br><br>
-![Dashboard Screenshot](./assets/screendash.png)
 ### Contact
 
 - [Website](https://bento.me/etuve) 🌐
