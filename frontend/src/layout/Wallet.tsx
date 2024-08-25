@@ -1,6 +1,5 @@
 import { toast } from "sonner";
 import { useState } from "react";
-import WalletLeft from "../components/WalletLeft";
 
 type Props = {};
 
@@ -15,7 +14,6 @@ function Wallet({}: Props) {
     
          
    
-          <WalletLeft />
 
       </div>
   

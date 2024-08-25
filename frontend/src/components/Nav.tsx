@@ -13,7 +13,7 @@ type Props = {
   handClick: (index: number) => void;
 };
 
-const titleNav: string[] = ["Yuzu", "🍋"];
+const titleNav: string[] = ["Yu", "🍋","zu"];
 const tabsNav: tabsNavtype = [
   { id: nanoid(), text: "Home", ico: <IoHome />, href: "/home", index: 0 },
   {
@@ -44,6 +44,7 @@ function Nav({ handClick }: Props) {
         <div className="text-white  pb-10">
           <h1 className="flex flex-row font-bold lg:text-xl px-2">
             <span className="hidden md:block">{titleNav[0]}</span>
+            <span className="hidden md:block text-lime-500">{titleNav[2]}</span>
             <span>{titleNav[1]}</span>
           </h1>
         </div>
@@ -53,7 +54,7 @@ function Nav({ handClick }: Props) {
               onClick={() => handClick(item.index)}
               className={({ isActive }) =>
                 `flex items-center gap-3  rounded-lg px-2 py-2  ${
-                  isActive ? "bg-lime-500/50 " : ""
+                  isActive ? "bg-lime-500/70 " : ""
                 }`
               }
               key={item.id}
