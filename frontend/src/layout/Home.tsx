@@ -43,7 +43,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="w-full h-screen flex flex-col lg:justify-center lg:items-center overflow-auto p-3 overflow-x-hidden bg-gradient-to-tl bg-white">
+    <div className="w-full h-screen flex flex-col lg:justify-center lg:items-center overflow-auto p-3 overflow-x-hidden bg-gradient-to-tl from-zinc-950 to-zinc-800">
       <header className="text-center flex flex-col justify-center items-center">
         <MotionH1
           className="py-5 text-4xl md:text-4xl lg:text-6xl flex-row flex text-lime-500 font-bold text-center"
@@ -55,7 +55,7 @@ function Home() {
           <span className="hidden md:block">{titleHome[2]}</span>
         </MotionH1>
         <MotionP
-          className="text-gray-800 font-medium px-3 text-xs lg:text-lg"
+          className="text-gray-50 font-medium px-3 text-xs lg:text-lg"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}

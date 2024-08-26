@@ -1,13 +1,9 @@
 import  { useEffect, useState } from 'react';
 import CardDash from "../components/CardDash";
 import { SiCodeblocks } from "../index.icon";
-import { createPublicClient, http } from 'viem';
-import { mainnet } from 'viem/chains';
 
-const client = createPublicClient({
-  chain: mainnet,
-  transport: http(),
-});
+import client from '../viemInit'
+
 
 type Props = {}
 
@@ -25,6 +21,7 @@ function BlockEth({}: Props) {
         setBlockNumber(blockToString); 
       } catch (error) {
         console.error('Erreur lors de la récupération du numéro de bloc:', error);
+
       }
     }
 

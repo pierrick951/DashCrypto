@@ -10,9 +10,9 @@ function Dash({}: Props) {
 
 
   return (
-    <div className="w-full h-auto min-h-screen bg-zinc-800 flex flex-col p-5 gap-5">
+    <div className="w-full h-auto min-h-screen bg-gradient-to-tl from-zinc-950 to-zinc-800 flex flex-col p-5 gap-5">
       
-          <div className="flex flex-col lg:flex-row px-5 w-full gap-2 ">
+          <div className="flex flex-col  justify-center lg:flex-row px-5 w-full gap-2 py-2 ">
             <Supply />
             <PriceEth />
             <BlockEth />

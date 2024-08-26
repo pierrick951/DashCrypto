@@ -12,6 +12,7 @@ function TopNav({  }: Props) {
      
       <div className="flex flex-row gap-3  justify-end  w-full">
         
+        {/* <input type="text"  className='rounded-lg bg-zinc-700' /> */}
 
         {buttonContent.map((item) => (
           <button 
