@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 import {
   IoHome,
   MdSpaceDashboard,
-  FaWallet,
   IoMdSettings,
   TbLogout2,
 } from "../index.icon";
@@ -23,13 +22,7 @@ const tabsNav: tabsNavtype = [
     href: "/dash",
     index: 1,
   },
-  {
-    id: nanoid(),
-    text: "Wallet",
-    ico: <FaWallet />,
-    href: "/wallet",
-    index: 2,
-  },
+
 ];
 
 function Nav({ handClick }: Props) {

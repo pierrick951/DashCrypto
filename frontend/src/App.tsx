@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./layout/Home";
 import Error from "./layout/Error";
 import Dash from "./layout/Dash";
-import Wallet from "./layout/Wallet";
 import MainLayout from "./layout/MainLayout";
 
 function App() {
@@ -12,7 +11,6 @@ function App() {
             <Route path="/" element={<MainLayout />}>
               <Route path="home" element={<Home />} />
               <Route path="dash" element={<Dash />} />
-              <Route path="wallet" element={<Wallet />} />
             </Route>
             <Route path="*" element={<Error />} />
           </Routes>
