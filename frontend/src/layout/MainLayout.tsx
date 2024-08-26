@@ -6,13 +6,11 @@ import { Toaster } from "sonner";
 import Nav from "../components/Nav";
 import Home from "./Home";
 import Dash from "./Dash";
-import Wallet from "./Wallet";
 import TopNav from "../components/TopNav";
 
 const mainContent: MainContentType = [
   { comp: <Home />, text: "Home" },
   { comp: <Dash />, text: "Dash" },
-  { comp: <Wallet />, text: "Wallet" },
 ];
 function MainLayout(): JSX.Element {
   const [contentIndex, setContentIndex] = useState<number>(0);

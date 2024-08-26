@@ -74,7 +74,7 @@ function ChartEth({}: Props) {
     },
   };
   return (
-    <div className=" hidden   md:h-[400px] md:w-[800px] lg:block  ">
+    <div className=" hidden   md:h-[400px] md:w-[920px] lg:w-[800px] lg:block  ">
     {dataChart ? (
         <Line className="h-full w-full  bg-white rounded shadow-2xl shadow-zinc-800 " data={dataChart} options={{ ...options, maintainAspectRatio: false, responsive: true }} />
     ) : (
