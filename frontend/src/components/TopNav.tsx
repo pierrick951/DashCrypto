@@ -14,7 +14,7 @@ function TopNav({}: Props) {
         {user ? (
          <div>
           <div className="bg-lime-500 w-2 rounded-full absolute h-2 animate-ping"></div>
-          <p className="text-gray-50 text-xl">{user}</p>
+          <p className="text-gray-50 text-lg">{user}</p>
          </div>
         ) : (
           <div>
