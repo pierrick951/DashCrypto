@@ -13,7 +13,7 @@ type Props = {
   handClick: (index: number) => void;
 };
 
-const titleNav: string[] = ["Yu", "🍋","zu"];
+const titleNav: string[] = ["Yu", "🍋‍🟩","zu"];
 const tabsNav: tabsNavtype = [
   { id: nanoid(), text: "Home", ico: <IoHome />, href: "/home", index: 0 },
   {

@@ -59,7 +59,7 @@ export default function  MetaProvider({children}: { children: ReactNode }) {
 
         setUser(null);
         setBalance(null);
-        toast('Disconnected from MetaMask');
+        toast.info('Disconnected from MetaMask');
     }
     
     return (

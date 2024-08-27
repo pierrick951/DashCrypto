@@ -1,12 +1,18 @@
-import { useState } from "react";
+// import { useState} from "react";
 import { FaWallet } from "../index.icon";
 import { useMeta } from "../context/ContextMetamask";
 import { nanoid } from "nanoid";
 
+
+
+
 type Props = {};
 function WalletUser({}: Props) {
+     
   const { user, balance } = useMeta();
-  const [isEmpty, SetIsEmpty] = useState<boolean>(true);
+  // const [isEmpty, SetIsEmpty] = useState<boolean>(true);
+
+ 
 
   const contentWallet: string[] = [
     "Your Wallet",
@@ -44,7 +50,7 @@ function WalletUser({}: Props) {
           <div className="flex-grow overflow-y-auto">
             <h3 className="text-zinc-800 font-semibold">{contentWallet[4]}</h3>
             <div>
-              {!isEmpty ? (
+              {/* {!isEmpty ? (
                 <div className="overflow-y-scroll flex flex-col items-center h-40 lg:h-50">
                   <p className="flex flex-row gap-2 justify-between  py-2 font-semibold italic text-zinc-800">
                     <span>{contentWallet[6]}</span>
@@ -52,13 +58,13 @@ function WalletUser({}: Props) {
                     <span>{contentWallet[8]}</span>
                   </p>
                 </div>
-              ) : (
+              ) : ( */}
                 <div className="text-center">
                   <p>
                    {contentWallet[5]}
                     </p>
                 </div>
-              )}
+              {/* )} */}
             </div>
           </div>
             <p className="text-zinc-800 font-semibold py-2 flex flex-row gap-2">
