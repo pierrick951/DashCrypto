@@ -1,24 +1,24 @@
 import { useState } from "react";
 import { FaWallet } from "../index.icon";
-import client from "../viemInit";
-import { toast,Toaster } from "sonner"
+import { useMeta } from "../context/ContextMetamask";
 import { nanoid } from "nanoid";
 
 type Props = {};
 function WalletUser({}: Props) {
-  const [isOn, setIsOn] = useState<boolean>(true);
+  const { user, balance } = useMeta();
   const [isEmpty, SetIsEmpty] = useState<boolean>(true);
 
   const contentWallet: string[] = [
     "Your Wallet",
     "Connect your wallet to access it.",
-    "Balance: 75072 eth",
+    `Balance:`,
     "Send",
     "Last Transaction",
     "No transactions to display",
     "From :",
     "To :",
     "Value :",
+    `${balance}`
   ];
 
   const inputContent = [
@@ -39,10 +39,10 @@ function WalletUser({}: Props) {
         </h2>
       </div>
 
-      {isOn ? (
+      {user ? (
         <div className="flex-grow p-2 flex flex-col justify-between">
           <div className="flex-grow overflow-y-auto">
-            <h3 className="font-normal">{contentWallet[4]}</h3>
+            <h3 className="text-zinc-800 font-semibold">{contentWallet[4]}</h3>
             <div>
               {!isEmpty ? (
                 <div className="overflow-y-scroll flex flex-col items-center h-40 lg:h-50">
@@ -54,13 +54,17 @@ function WalletUser({}: Props) {
                 </div>
               ) : (
                 <div className="text-center">
-                  <p>{contentWallet[5]}</p>
+                  <p>
+                   {contentWallet[5]}
+                    </p>
                 </div>
               )}
             </div>
           </div>
-            <p className="text-zinc-800 font-semibold py-2">
-              {contentWallet[2]}
+            <p className="text-zinc-800 font-semibold py-2 flex flex-row gap-2">
+              <span>{contentWallet[2]}</span>
+              <span className="text-mono text-lime-500">{contentWallet[9]}</span>
+            
             </p>
           <div className="w-full flex flex-col lg:flex-row items-center justify-center  p-2">
             <div className="flex flex-col w-full gap-2 ">

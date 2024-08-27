@@ -33,6 +33,12 @@ export default function  MetaProvider({children}: { children: ReactNode }) {
                 toast.error('MetaMask is not installed!');
                 return;
             }
+            const chainId: any = await ethereum.request({ method: 'eth_chainId' });
+            
+            if (chainId !== '0x1') {
+                toast.error('Please connect to the Ethereum mainnet');
+                return;
+              }
 
             const accounts: any =  await ethereum.request({method:'eth_requestAccounts'});
             const account: any = accounts[0];
@@ -56,16 +62,11 @@ export default function  MetaProvider({children}: { children: ReactNode }) {
         toast('Disconnected from MetaMask');
     }
     
-
-
-
     return (
 
         <MetamaskContext.Provider value={{ user, balance, login, logout }}>
         {children}
         </MetamaskContext.Provider>    )
     }
-
-
 
     export const useMeta = () => useContext(MetamaskContext);
