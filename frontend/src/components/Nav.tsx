@@ -2,6 +2,7 @@ import { nanoid } from "nanoid";
 import { tabsNavtype, tabstype } from "../types/TypeTabsNav";
 import { NavLink } from "react-router-dom";
 import { useMeta } from "../context/ContextMetamask";
+import lime from "../../public/lime.webp"
 
 import {
   IoHome,
@@ -12,6 +13,7 @@ import {
 type Props = {
   handClick: (index: number) => void;
 };
+
 
 const titleNav: string[] = ["Yu", "🍋‍🟩","zu"];
 const tabsNav: tabsNavtype = [

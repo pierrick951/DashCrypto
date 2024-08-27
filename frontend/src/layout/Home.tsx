@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-
+import axios from "axios";
 import {
   SiSolana,
   PiCurrencyBtcFill,
@@ -9,7 +9,6 @@ import {
   SiLitecoin,
 } from "../index.icon";
 import { SettingCardType, CryptoPrices } from "../types/TypeData";
-import axios from "axios";
 const API_URL =
   "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,litecoin,solana&vs_currencies=usd";
 const titleHome = [
@@ -47,7 +46,7 @@ function Home() {
     <div className="w-full h-screen flex flex-col lg:justify-center lg:items-center overflow-auto p-3 overflow-x-hidden bg-gradient-to-tl from-zinc-950 to-zinc-800">
       <header className="text-center flex flex-col justify-center items-center">
         <MotionH1
-          className="py-5 text-4xl md:text-4xl lg:text-6xl flex-row flex text-lime-500 font-bold text-center z-20"
+          className="py-5 text-4xl md:text-4xl lg:text-6xl flex-row flex text-lime-500 font-bold text-center"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -57,7 +56,7 @@ function Home() {
           <span className="hidden md:block">{titleHome[2]}</span>
         </MotionH1>
         <MotionP
-          className="text-gray-50 font-medium px-3 text-xs lg:text-lg z-20"
+          className="text-gray-50 font-medium px-3 text-xs lg:text-lg "
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -70,7 +69,7 @@ function Home() {
           {settingCard.map((item) => (
             <div
               key={item.id}
-              className="bg-white rounded-xl shadow-2xl shadow-zinc-800 md:w-40 p-5 my-2 font-bold text-zinc-800  z-20"
+              className="bg-white rounded-xl shadow-2xl shadow-zinc-800 md:w-40 p-5 my-2 font-bold text-zinc-800"
             >
               <div className="flex flex-col items-center justify-center w-full ">
                 <span className="text-3xl text-slate-800">{item.ico}</span>
