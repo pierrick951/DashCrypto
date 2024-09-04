@@ -15,9 +15,10 @@ type Props = {
 };
 
 
-const titleNav: string[] = ["Yu", "🍋‍🟩","zu"];
+const titleNav: string[] = ["Yu","zu"];
 const tabsNav: tabsNavtype = [
   { id: nanoid(), text: "Home", ico: <IoHome />, href: "/home", index: 0 },
+
   {
     id: nanoid(),
     text: "Dash",
@@ -38,14 +39,16 @@ function Nav({ handClick }: Props) {
     <div className="bg-gradient-to-br from-zinc-900 to-zinc-950 p-5 h-screen flex flex-col justify-between text-gray-200 text-lg">
  
       <div>
-        <div className="text-white  pb-10">
-          <h1 className="flex flex-row font-bold lg:text-xl px-2">
-            <span className="hidden md:block">{titleNav[0]}</span>
-            <span className="hidden md:block text-lime-500">{titleNav[2]}</span>
-            <span>{titleNav[1]}</span>
+        <div className="text-white pb-10 flex flex-row items-start justify-center gap-2">
+          <h1 className="flex flex-row  gap-2 font-bold lg:text-xl px-2">
+            <div className="flex flex-row">
+              <span className="hidden md:block">{titleNav[0]}</span>
+              <span className="hidden md:block text-lime-500">{titleNav[1]}</span>
+            </div>
+            <img src={lime} className="w-6"/>
           </h1>
         </div>
-        <div className="  flex-flex-col h-auto space-y-4 ">
+        <div className="flex-flex-col h-auto space-y-4">
           {tabsNav.map((item) => (
             <NavLink
               onClick={() => handClick(item.index)}
