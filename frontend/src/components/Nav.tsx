@@ -9,6 +9,9 @@ import {
   MdSpaceDashboard,
   IoMdSettings,
   TbLogout2,
+  PiVaultFill,
+  FaCoins,
+  FaVoteYea
 } from "../index.icon";
 type Props = {
   handClick: (index: number) => void;
@@ -24,6 +27,27 @@ const tabsNav: tabsNavtype = [
     text: "Dash",
     ico: <MdSpaceDashboard />,
     href: "/dash",
+    index: 1,
+  },
+  {
+    id: nanoid(),
+    text: "Loan",
+    ico: <FaCoins />,
+    href: "/loan",
+    index: 1,
+  },
+  {
+    id: nanoid(),
+    text: "Vault",
+    ico: <PiVaultFill />,
+    href: "/vault",
+    index: 1,
+  },
+  {
+    id: nanoid(),
+    text: "Governance",
+    ico: <FaVoteYea/>,
+    href: "/governance",
     index: 1,
   },
 

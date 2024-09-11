@@ -15,8 +15,8 @@ function App() {
               <Route path="home" element={<Home />} />
               <Route path="dash" element={<Dash />} />
               <Route path="loan" element={<Loan />} />
-              <Route path="Vault" element={<Vault />} />
-              <Route path="Governance" element={<Governance/>} />
+              <Route path="vault" element={<Vault />} />
+              <Route path="governance" element={<Governance/>} />
             </Route>
             <Route path="*" element={<Error />} />
           </Routes>
