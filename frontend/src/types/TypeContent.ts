@@ -1,6 +1,5 @@
 export type MainContentType = {
   comp: JSX.Element;
-  text: string;
 }[];
 
 export type ArticleType = {
