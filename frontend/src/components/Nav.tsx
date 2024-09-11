@@ -34,21 +34,21 @@ const tabsNav: tabsNavtype = [
     text: "Loan",
     ico: <FaCoins />,
     href: "/loan",
-    index: 1,
+    index: 2,
   },
   {
     id: nanoid(),
     text: "Vault",
     ico: <PiVaultFill />,
     href: "/vault",
-    index: 1,
+    index: 3,
   },
   {
     id: nanoid(),
     text: "Governance",
     ico: <FaVoteYea/>,
     href: "/governance",
-    index: 1,
+    index: 4,
   },
 
 ];
