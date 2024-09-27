@@ -1,0 +1,24 @@
+{
+    "tasks": {
+      "compile": {
+        "dependsOn": [],
+        "cache": true
+      },
+      "build": {
+        "outputs": [
+          "frontend/dist/**",
+          "backend/artifacts/**",
+          "backend/cache/**"
+        ],
+        "cache": true
+      },
+      "dev": {
+        "cache": false
+      },
+      "lint": {
+        "outputs": [],
+        "cache": true
+      }
+    }
+  }
+  

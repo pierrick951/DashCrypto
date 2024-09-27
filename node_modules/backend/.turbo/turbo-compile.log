@@ -1,0 +1,6 @@
+
+> backend@1.0.0 compile
+> npx hardhat compile
+
+Nothing to compile
+No need to generate any newer typings.
