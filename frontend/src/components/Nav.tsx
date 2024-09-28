@@ -55,9 +55,9 @@ const tabsNav: tabsNavtype = [
 
 function Nav({ handClick }: Props) {
   const {logout} = useMeta();
-  const tabsNavBottom: tabstype = [
-    { id: nanoid(), text: "Setting", ico: <IoMdSettings /> },
-    { id: nanoid(), text: "Log out", ico: <TbLogout2 />}
+  const tabsNavBottom= [
+    { id: nanoid(), text: "Setting", ico: <IoMdSettings /> , color:"text-red-500" },
+    { id: nanoid(), text: "Log out", ico: <TbLogout2 />,  color:"text-white" }
   ];
   return (
     <div className="bg-gradient-to-br from-zinc-900 to-zinc-950 p-5 h-screen flex flex-col justify-between text-gray-200 text-lg">
@@ -94,7 +94,7 @@ function Nav({ handClick }: Props) {
         {tabsNavBottom.map((item) => (
           <button
           onClick={logout}
-            className="flex flex-row gap-3 px-3 items-center justify-center  "
+            className="flex flex-row gap-3 px-3 items-center justify-center"
             key={item.id}
           >
             <span>{item.ico}</span>

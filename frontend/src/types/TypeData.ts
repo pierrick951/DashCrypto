@@ -19,5 +19,5 @@ export type Ethereum = {
 
 export type buttonContentType ={
   text: string;
-  image: string;
+  image: JSX.Element;
 }[]

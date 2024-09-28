@@ -30,15 +30,9 @@ export default function  MetaProvider({children}: { children: ReactNode }) {
             const {ethereum}: any = window as any;
 
             if(!ethereum){
-                toast.error('MetaMask is not installed!');
+                toast.error('Wallet not detected');
                 return;
             }
-            const chainId: any = await ethereum.request({ method: 'eth_chainId' });
-            
-            if (chainId !== '0x1') {
-                toast.error('Please connect to the Ethereum mainnet');
-                return;
-              }
 
             const accounts: any =  await ethereum.request({method:'eth_requestAccounts'});
             const account: any = accounts[0];
@@ -48,9 +42,9 @@ export default function  MetaProvider({children}: { children: ReactNode }) {
             const balances  = await client.getBalance({address: account})
             setBalance(balances)
 
-            toast.success('Connected to MetaMask');
+            toast.success(' Wallet Connected');
         } catch (error) {
-            toast.error('Failed to connect to MetaMask');
+            toast.error('Failed to connect Wallet');
         }
     }
 
@@ -59,7 +53,7 @@ export default function  MetaProvider({children}: { children: ReactNode }) {
 
         setUser(null);
         setBalance(null);
-        toast.info('Disconnected from MetaMask');
+        toast.info('Disconnected');
     }
     
     return (
