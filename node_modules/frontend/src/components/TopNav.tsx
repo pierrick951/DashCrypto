@@ -1,9 +1,9 @@
-import metamask from "../assets/metamaskk.png";
+import {FaWallet } from "../index.icon";
 import { buttonContentType } from "../types/TypeData";
 import { useMeta } from "../context/ContextMetamask";
 
-const buttonContent: buttonContentType = [
-  { text: "Connect ", image: metamask },
+const buttonContent:buttonContentType  = [
+  { text: "Connect ", image: <FaWallet/> },
 ];
 type Props = {};
 function TopNav({}: Props) {
@@ -14,7 +14,7 @@ function TopNav({}: Props) {
         {user ? (
          <div>
           <div className="bg-lime-500 w-2 rounded-full absolute h-2 animate-ping"></div>
-          <p className="text-gray-50 text-lg">{user}</p>
+          <p className="text-gray-50 text-lg font-medium px-2   ">{user}</p>
          </div>
         ) : (
           <div>
@@ -23,13 +23,9 @@ function TopNav({}: Props) {
                 onClick={login}
                 className="flex flex-row gap-2 bg-lime-700 hover:bg-lime-600 items-center justify-center px-3 py-2 rounded-lg font-semibold text-gray-50"
                 key={item.text}
-              >
+                >
                 <span className="hidden lg:flex">{item.text}</span>
-                <img
-                  className="w-6"
-                  src={item.image}
-                  alt="Connect your wallet with metamask"
-                />
+                <span>{item.image}</span>
               </button>
             ))}
           </div>
