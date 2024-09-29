@@ -10,7 +10,7 @@ type Props = {}
 function BlockEth({}: Props) {
   const [blockNumber, setBlockNumber] = useState<string| null>(null);
 
-  const titleBlock: string = "Current Block";
+  const titleBlock: string = "Block";
   const icon: JSX.Element = <SiCodeblocks />;
 
   useEffect(() => {

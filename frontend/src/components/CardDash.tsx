@@ -8,8 +8,8 @@ const contentCard: string = "loading";
 
 function bodyCard({ title1, title2, data }: Props) {
   return (
-    <div className="bg-gradient-to-tr from-white to-gray-100 rounded p-4 w-full lg:max-w-xs mb-5  lg:mb-0 shadow-2xl shadow-zinc-800">
-      <h2 className="flex flex-row font-semibold  text-zinc-800 items-center  justify-between gap-2 py-2">
+    <div className="bg-gradient-to-tr from-white to-gray-100 rounded p-4 w-full md:max-w-xs mb-5  lg:mb-0 shadow-2xl shadow-zinc-800">
+      <h2 className="flex flex-row font-semibold  text-zinc-800 items-center  justify-between gap-2 py-3">
         <span >{title1}</span>
         <span>{title2}</span>
       </h2>

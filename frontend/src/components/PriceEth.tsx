@@ -5,7 +5,7 @@ import CardDash from '../components/CardDash'
 import {FaEthereum } from '../index.icon'
 
 
-const titlePrice:string = 'ETH Value'
+const titlePrice:string = 'Value'
 const icon: JSX.Element = <FaEthereum  />
 
 function PriceEth() {

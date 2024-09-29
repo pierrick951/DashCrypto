@@ -6,7 +6,7 @@ const APIKEY = import.meta.env.VITE_CRYPTO_API_KEY;
 
 const Supply = () => {
   const [suply, setSuply] = useState<string | null>(null);
-  const titleSuplly:string ="ETH Supply";
+  const titleSuplly:string ="Supply";
   const icon: JSX.Element = <FaBox />
   const getSuplly: () => Promise<void> = async () => {
     try {
