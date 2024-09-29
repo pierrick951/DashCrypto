@@ -11,15 +11,15 @@ type Props = {};
 function Dash({}: Props) {
   const { user } = useMeta();
 
-  const handleclick = async () => {
+  const handleclick: ()=> void = async () => {
     if (user) {
       try {
         toast.success("You have buy X token");
       } catch (error) {
-        toast.error("somethings goes wrong");
+        toast.error("Somethings goes wrong");
       }
     } else {
-      toast.info("plase connect your wallet");
+      toast.info("Please connect your wallet");
     }
   };
   return (
@@ -31,7 +31,7 @@ function Dash({}: Props) {
           <BlockEth />
           <GasPrice />
         </div>
-        <div className="bg-gradient-to-tr w-full from-white  to-gray-100 rounded p-4 flex flex-col ">
+        <div className="bg-gradient-to-tr w-full from-white  to-gray-100 rounded p-4 flex flex-col shadow-zinc-950 shadow-2xl">
           <div className="py-3 w-full flex justify-center">
             <Coin />
           </div>
