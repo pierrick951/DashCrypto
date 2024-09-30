@@ -21,22 +21,15 @@ contract Token is ERC20, Ownable, ReentrancyGuard {
     function buyToken(uint256 _amountToken) public payable nonReentrant {
         require(
             msg.value >= _amountToken * tokenPrice,
-            "Not enougth found provided"
+            "Not enough funds provided"
         );
         require(
             _amountToken <= balanceOf(address(this)),
-            "Not enougth Token provided"
+            "Not enough Token avaible"
         );
 
         _transfer(address(this), msg.sender, _amountToken);
         emit TokenPurchased(msg.sender, _amountToken);
     }
 
-    function getContractBalance() external view returns (uint256) {
-        return address(this).balance;
-    }
-
-    function getBalanceToken(address _address) external view returns (uint256) {
-        return balanceOf(_address);
-    }
 }
