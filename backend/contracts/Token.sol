@@ -32,7 +32,11 @@ contract Token is ERC20, Ownable, ReentrancyGuard {
         emit TokenPurchased(msg.sender, _amountToken);
     }
 
-    function getSupply() public view returns (uint256) {
-       return balanceOf(address(this));
+    function getContractBalance() external view returns (uint256) {
+        return address(this).balance;
+    }
+
+    function getBalanceToken(address _address) external view returns (uint256) {
+        return balanceOf(_address);
     }
 }
