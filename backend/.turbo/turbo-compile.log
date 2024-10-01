@@ -2,5 +2,6 @@
 > backend@1.0.0 compile
 > npx hardhat compile
 
-Nothing to compile
-No need to generate any newer typings.
+Generating typings for: 1 artifacts in dir: typechain-types for target: ethers-v6
+Successfully generated 28 typings!
+Compiled 1 Solidity file successfully (evm target: paris).
