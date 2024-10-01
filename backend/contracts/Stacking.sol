@@ -98,7 +98,7 @@ contract Stacking is ReentrancyGuard, Ownable, Pausable {
     function unStack() public nonReentrant {
         user storage currentUser = users[msg.sender];
         require(currentUser.hasStake, "You don't have an active stack");
-        
+
         require(
             block.timestamp >= currentUser.timeStaked + LOCK_TIME,
             "Lock time not elapsed"
