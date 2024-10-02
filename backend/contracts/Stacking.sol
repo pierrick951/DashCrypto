@@ -84,7 +84,6 @@ contract Stacking is ReentrancyGuard, Ownable, Pausable {
         );
 
         uint256 reward = calculateReward(msg.sender);
-        require(reward > 0, "No rewards to claim");
         require(reward <= totalRewards, "Not enough rewards available");
 
         currentUser.lastRewardTime = block.timestamp;
@@ -136,5 +135,10 @@ contract Stacking is ReentrancyGuard, Ownable, Pausable {
 
     function unpauseContract() external onlyOwner {
         _unpause();
+    }
+
+    function estimateReward(address _user) external view returns (uint256) {
+        uint256 reward = calculateReward(_user);
+        return reward;
     }
 }
