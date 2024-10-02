@@ -37,7 +37,7 @@ contract Governance is ReentrancyGuard, Ownable {
         User storage addressProposal = Users[_Adressproposal];
 
         uint256 balanceToken = tokenContract.balanceOf(msg.sender);
-        require(balanceToken >= 10, "not enougth token for vote");
+        require(balanceToken >= 1, "not enougth token for vote");
         require(
             addressProposal.hasProposal,
             "This user does not have a proposal."
