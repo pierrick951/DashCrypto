@@ -10,8 +10,8 @@ contract Governance is ReentrancyGuard, Ownable {
     using SafeERC20 for IERC20;
     IERC20 public tokenContract;
 
-    uint8 constant TOKEN_VOTE = 10;
-    uint8 constant PROPOSALE_PRICE = 200;
+    uint8 constant TOKEN_VOTE = 1;
+    uint8 constant PROPOSALE_PRICE = 2;
 
     constructor(address _tokenContractAddress) Ownable(msg.sender) {
         tokenContract = IERC20(_tokenContractAddress);
@@ -22,6 +22,7 @@ contract Governance is ReentrancyGuard, Ownable {
         uint8 numberOfVote;
         uint8 numberOfProposal;
         uint16 CountProposaleVote;
+        uint256 TimeProposale;
         bool hasProposal;
     }
 
@@ -54,6 +55,18 @@ contract Governance is ReentrancyGuard, Ownable {
         emit Vote(msg.sender, addressProposal.userProposal);
     }
 
+    function erased(address _address) public {
+        User storage currentUser = Users[_address];
+
+        require(
+            block.timestamp >= currentUser.TimeProposale + 1 weeks,
+            "Time Over"
+        );
+        currentUser.TimeProposale = 0;
+        currentUser.userProposal = "";
+        currentUser.hasProposal = false;
+    }
+
     function setProposale(string memory _proposal) public {
         User storage currentUser = Users[msg.sender];
         uint256 balanceToken = tokenContract.balanceOf(msg.sender);
@@ -63,6 +76,7 @@ contract Governance is ReentrancyGuard, Ownable {
         currentUser.userProposal = _proposal;
         currentUser.hasProposal = true;
         currentUser.numberOfProposal += 1;
+        currentUser.TimeProposale = block.timestamp;
 
         tokenContract.safeTransferFrom(
             msg.sender,
@@ -78,5 +92,9 @@ contract Governance is ReentrancyGuard, Ownable {
         User storage currentUser = Users[_user];
 
         return currentUser.userProposal;
+    }
+
+    function getNumberVote() public view returns (uint8) {
+        return Users[msg.sender].numberOfVote;
     }
 }
