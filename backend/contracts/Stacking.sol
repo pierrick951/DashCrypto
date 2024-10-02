@@ -77,7 +77,7 @@ contract Stacking is ReentrancyGuard, Ownable, Pausable {
     function claimReward() public canClaimReward {
         require(totalRewards > 0, " Any Rewards avaible");
         user storage currentUser = users[msg.sender];
-        require(currentUser.hasStake, "You don'thave an active stack");
+        require(currentUser.hasStake, "You don't have an active stack");
         require(
             block.timestamp >= currentUser.timeStaked + LOCK_TIME,
             "Lock time not elapsed"
