@@ -12,7 +12,7 @@ type Props = {};
 function Dash({}: Props) {
   const { user } = useMeta();
 
-  const handleclick: ()=> void = async () => {
+  const handleclick: () => void = async () => {
     if (user) {
       try {
         toast.success("You have buy X token");
@@ -36,21 +36,20 @@ function Dash({}: Props) {
           </div>
         </div>
         <div className="bg-gradient-to-tl w-full from-zinc-950 to-zinc-900 rounded p-4 flex  flex-col lg:flex-row shadow-zinc-950 shadow-2xl">
-          <h2>d</h2>
           <div className="py-3 w-full flex justify-center">
             <Coin />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col w-full">
             <div className="py-2 flex flex-col">
               <label htmlFor="token-amount"></label>
               <input
               required
-                className="  w-full p-2 border-zinc-900 border-2 font-semibold text-zinc-800 rounded"
+                className="  w-full p-2 text-white font-semibold border-none bg-transparent text-xl focus:outline-none rounded"
                 type="number"
                 id="token-amount"
                 name="token-amount"
                 min="1"
-                placeholder="Amount"
+                placeholder="0.0"
               />
             
             </div>
