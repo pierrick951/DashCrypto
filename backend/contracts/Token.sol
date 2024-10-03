@@ -7,7 +7,7 @@ import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract Token is ERC20, Ownable, ReentrancyGuard {
     uint256 initialSuply;
-    uint tokenPrice = 100 wei;
+    uint constant tokenPrice = 0.01 ether;
 
     event TokenPurchased(address indexed buyer, uint256 amount);
 
@@ -22,21 +22,27 @@ contract Token is ERC20, Ownable, ReentrancyGuard {
         _burn(address(this), _amount);
     }
 
-        function buyToken(uint256 _amountToken) public payable nonReentrant {
-        require(
-            msg.value >= _amountToken * tokenPrice,
-            "Not enough funds provided"
-        );
-        require(
-            _amountToken <= balanceOf(address(this)),
-            "Not enough Token avaible"
-        );
+  function buyToken(uint256 _amountToken) public payable nonReentrant {
+    uint256 cost = _amountToken * tokenPrice;
+    require(_amountToken > 0, "Must buy at least one token");
+    require(msg.value >= cost, "Not enough funds provided");
+    require(_amountToken <= balanceOf(address(this)), "Not enough Token available");
 
-        _transfer(address(this), msg.sender, _amountToken);
-        emit TokenPurchased(msg.sender, _amountToken);
+    _transfer(address(this), msg.sender, _amountToken);
+    
+    uint256 excess = msg.value - cost;
+    if (excess > 0) {
+        payable(msg.sender).transfer(excess);
     }
 
-    function getSuplly() public view returns (uint256)  {
+    emit TokenPurchased(msg.sender, _amountToken);
+}
+
+    function getSuplly() public view returns (uint256) {
         return balanceOf(address(this));
+    }
+
+    function withdraw() public onlyOwner {
+        payable(owner()).transfer(address(this).balance);
     }
 }
