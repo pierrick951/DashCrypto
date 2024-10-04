@@ -4,7 +4,6 @@ import Proposale from "../components/Proposale";
 import { useState } from "react";
 import { layoutCompType } from "../types/TypeData";
 import { MainContentType } from "../types/TypeContent";
-import YouProposale from "../components/YouProposale";
 
 
 function Governance() {
@@ -30,8 +29,8 @@ function Governance() {
     return CurrentComp[contentIndex].comp;
   };
   return (
-    <div className="bg-gradient-to-tl from-zinc-900 to-zinc-800 min-h-screen h-auto flex justify-center flex-col lg:flex-row  items-start gap-2  p-5">
-    <div className="bg-gradient-to-tl from-zinc-950 to-zinc-900 p-3 h-auto w-96 rounded shadow-2xl">
+    <div className="bg-gradient-to-tl from-zinc-900 to-zinc-800 min-h-screen h-auto flex justify-center  lg:flex-row   items-start  p-2 lg:p-5">
+    <div className="bg-gradient-to-tr from-zinc-950 to-zinc-900 p-3 h-auto  w-full md:w-96 rounded shadow-2xl  ">
       <div className="flex flex-col lg:flex-row gap-2">
         {layoutComp.map((item, index) => (
           <button
@@ -46,7 +45,6 @@ function Governance() {
       <hr className="my-5 border-zinc-800"/>
       <div>{getCurrentComponent()}</div>
     </div>
-    <YouProposale/>
   </div>
   )
 }

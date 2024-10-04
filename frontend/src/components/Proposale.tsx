@@ -1,12 +1,10 @@
 import { toast } from "sonner";
 import { useMeta } from "../context/ContextMetamask";
 import { useState } from "react";
-import { usePropsale } from "../context/ContextProposale"
 const content: string[] = ["Proposal", "Set proposal", "Nbm Proposal "];
 
 function Proposale() {
   const { user } = useMeta();
-  const {setProposal } = usePropsale();
 
   const [countVote, SetCountVote] = useState<Number>(0);
  
@@ -37,7 +35,6 @@ function Proposale() {
       <div className="py-2 flex flex-col">
         <label htmlFor="vote"></label>
         <input
-        onChange={(e) => setProposal(e.target.value)}
           required
           className="-full p-2 text-white font-semibold border-none bg-transparent text-lg focus:outline-none rounded"
           type="text"

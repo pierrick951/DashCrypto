@@ -24,9 +24,9 @@ function Dash({}: Props) {
     }
   };
   return (
-    <div className="w-full h-auto min-h-screen bg-gradient-to-tl from-zinc-900 to-zinc-800 p-5  flex justify-center">
+    <div className="w-full h-auto min-h-screen bg-gradient-to-tl from-zinc-900 to-zinc-800  p-2 md:p-5  flex justify-center">
       <div className="flex  flex-col  items-center gap-5">
-        <div className="flex flex-col justify-center  bg-gradient-to-tl from-zinc-950 to-zinc-900 p-4 rounded w-full gap-2">
+        <div className="flex flex-col justify-center  bg-gradient-to-tr from-zinc-950 to-zinc-900 p-4 rounded w-full gap-2">
            <h2 className="text-lime-500 font-semibold text-2xl text-center lg:text-start ">{content[1]}</h2>
           <div className="flex-col lg:flex-row flex gap-2">
             <Supply />
