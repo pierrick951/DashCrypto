@@ -21,3 +21,12 @@ export type buttonContentType ={
   text: string;
   image: JSX.Element;
 }[]
+
+export type  layoutCompType =  {
+  id: string;
+  string: string;
+}[]
+
+export type CurrentCompType =  {
+  comp: JSX.Element;
+}[]

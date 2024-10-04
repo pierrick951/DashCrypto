@@ -15,11 +15,11 @@ const config: HardhatUserConfig = {
     hardhat: {
       chainId: 7777
     },
-    // sepolia : {
-    //   url : SEPOLIA_RPC_URL,
-    //   accounts: [PRIVATE_KEY],
-    //   chainId : 7855
-    // },
+    sepolia : {
+      url : SEPOLIA_RPC_URL,
+      accounts: [PRIVATE_KEY],
+      chainId : 11155111
+    },
   },
   gasReporter : {
     enabled : true,

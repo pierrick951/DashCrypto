@@ -2,7 +2,7 @@ import { nanoid } from "nanoid";
 import { tabsNavtype, tabstype } from "../types/TypeTabsNav";
 import { NavLink } from "react-router-dom";
 import { useMeta } from "../context/ContextMetamask";
-import lime from "../../public/lime.webp"
+import lime from "../../public/lime.webp";
 
 import {
   IoHome,
@@ -10,15 +10,13 @@ import {
   IoMdSettings,
   TbLogout2,
   PiVaultFill,
-  FaCoins,
-  FaVoteYea
+  FaVoteYea,
 } from "../index.icon";
 type Props = {
   handClick: (index: number) => void;
 };
 
-
-const titleNav: string[] = ["Yu","zu"];
+const titleNav: string[] = ["Yu", "zu"];
 const tabsNav: tabsNavtype = [
   { id: nanoid(), text: "Home", ico: <IoHome />, href: "/home", index: 0 },
 
@@ -29,47 +27,41 @@ const tabsNav: tabsNavtype = [
     href: "/dash",
     index: 1,
   },
-  {
-    id: nanoid(),
-    text: "Loan",
-    ico: <FaCoins />,
-    href: "/loan",
-    index: 2,
-  },
+
   {
     id: nanoid(),
     text: "Vault",
     ico: <PiVaultFill />,
     href: "/vault",
-    index: 3,
+    index: 2,
   },
   {
     id: nanoid(),
     text: "Governance",
-    ico: <FaVoteYea/>,
+    ico: <FaVoteYea />,
     href: "/governance",
-    index: 4,
+    index: 3,
   },
-
 ];
 
 function Nav({ handClick }: Props) {
-  const {logout} = useMeta();
-  const tabsNavBottom : tabstype= [
+  const { logout } = useMeta();
+  const tabsNavBottom: tabstype = [
     { id: nanoid(), text: "Setting", ico: <IoMdSettings /> },
-    { id: nanoid(), text: "Log out", ico: <TbLogout2 />}
+    { id: nanoid(), text: "Log out", ico: <TbLogout2 /> },
   ];
   return (
     <div className="bg-gradient-to-br from-zinc-900 to-zinc-950 p-5 h-screen flex flex-col justify-between text-gray-200 text-lg">
- 
       <div>
         <div className="text-white pb-10 flex flex-row items-start justify-center gap-2">
           <h1 className="flex flex-row  gap-2 font-bold lg:text-xl px-2">
             <div className="flex flex-row">
               <span className="hidden md:block">{titleNav[0]}</span>
-              <span className="hidden md:block text-lime-500">{titleNav[1]}</span>
+              <span className="hidden md:block text-lime-500">
+                {titleNav[1]}
+              </span>
             </div>
-            <img src={lime} className="w-6"/>
+            <img src={lime} className="w-6" />
           </h1>
         </div>
         <div className="flex-flex-col h-auto space-y-4">
@@ -93,7 +85,7 @@ function Nav({ handClick }: Props) {
       <div className="space-y-3 text-md">
         {tabsNavBottom.map((item) => (
           <button
-          onClick={logout}
+            onClick={logout}
             className="flex flex-row gap-3 px-3 items-center justify-center"
             key={item.id}
           >
