@@ -19,3 +19,4 @@ export { FcGoogle } from "react-icons/fc";
 export { PiVaultFill } from "react-icons/pi";
 export { FaCoins } from "react-icons/fa6";
 export { FaVoteYea } from "react-icons/fa";
+export { BiCoin } from "react-icons/bi";
