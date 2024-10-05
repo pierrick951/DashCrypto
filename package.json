@@ -1,0 +1,12 @@
+{
+  "name": "yuzu",
+  "private": true,
+  "packageManager": "npm@10.2.5",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "devDependencies": {
+    "turbo": "^2.1.2"
+  }
+}
