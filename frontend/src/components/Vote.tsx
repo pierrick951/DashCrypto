@@ -1,13 +1,13 @@
 import { toast } from "sonner";
 import { useMeta } from "../context/ContextMetamask";
-import { useState } from "react";
+// import { useState } from "react";
 
 const content: string[] = ["Vote", "Set Vote", "Nbm of votes "];
 
 function Vote() {
   const { user } = useMeta();
 
-  const [countVote, SetCountVote] = useState<Number>(0)
+  // const [countVote, SetCountVote] = useState<Number>(0)
  
   const handleclick = () => {
     if (user) {
@@ -26,7 +26,7 @@ function Vote() {
       <h2 className="py-2 flex justify-between">
         <span className="text-md text-zinc-700  font-semibold">{content[2]}</span>
 
-        <span className="text-md text-zinc-700  font-semibold">{countVote.toString()}</span>
+        <span className="text-md text-zinc-700  font-semibold">0</span>
 
       </h2>
       <div className="py-2 flex flex-col">
