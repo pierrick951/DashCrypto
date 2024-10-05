@@ -1,12 +1,12 @@
 import { toast } from "sonner";
 import { useMeta } from "../context/ContextMetamask";
-import { useState } from "react";
+// import { useState } from "react";
 const content: string[] = ["Proposal", "Set proposal", "Nbm Proposal "];
 
 function Proposale() {
   const { user } = useMeta();
 
-  const [countVote, SetCountVote] = useState<Number>(0);
+  // const [countVote, SetCountVote] = useState<Number>(0);
  
   
 
@@ -29,7 +29,7 @@ function Proposale() {
         </span>
 
         <span className="text-md text-zinc-700  font-semibold">
-          {countVote.toString()}
+        0
         </span>
       </h2>
       <div className="py-2 flex flex-col">

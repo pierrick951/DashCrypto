@@ -5,6 +5,7 @@ import Supply from "../components/Supply";
 import Coin from "../components/Coin";
 import { useMeta } from "../context/ContextMetamask";
 import { toast } from "sonner";
+// import client from "../viemInit"
 
 
 const content: string[] = ["Buy","Eth Stats"];
