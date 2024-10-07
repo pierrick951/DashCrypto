@@ -16,17 +16,18 @@ const CONTRACT_ADDRESS = "0x1ea675656b01d4E0aD07AdA79BC18866E147808D";
 
 const CONTRACT_ABI = [
   {
-    input: [{ name: "_amounToken", type: "uint256" }],
+    inputs: [{ name: "_amountToken", type: "uint256" }],
     name: "buyToken",
     outputs: [],
-    StateMutability: "payable",
+    stateMutability: "payable",
     type: "function",
   },
 ];
 
 function Dash() {
   const { user, provider, signer } = useMeta();
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(0); 
+  const TokenPrice = ethers.parseEther("0.01");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAmount(Number(e.target.value));
@@ -40,23 +41,35 @@ function Dash() {
     return new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
   };
 
-  const handleBuyToken: () => void = async () => {
-    if (!user) {
-      toast.info("Please connect your wallet");
-      return;
-    }
+  const handleBuyToken: (amountToken: number) => {} = async (amountToken) => {
+    const contract = getContract();
 
-    try {
-      if (amount <= 0) {
-        toast.error("Please enter  a valide token  amount");
-        return;
+    if (user) {
+      try {
+        if ( amountToken <= 0 ) {
+          toast.success("please choose a quantity higher than zero");
+        }
+        const amountTokenBigInt = BigInt(amountToken); 
+        const totalPrice = amountTokenBigInt * TokenPrice;
+        const tx = await contract.buyToken(amountToken, { value: totalPrice});
+        await tx.wait();
+
+
+        contract.on("TokenPurchased", (amount) => {
+          toast.success(`Success! You bought ${amount} tokens.`);
+        });
+
+
+
+        toast.success(`succes you buy ${amountToken}`);
+
+      } catch (error) {
+        toast.error(`somethings goes wrong`);
+        console.log(error)
       }
-    } catch (error) {
-      toast.error("Something went wrong");
+    } else if (!user) {
+      toast.info("Please conect your wallet");
     }
-
-
-    
   };
   return (
     <div className="w-full h-auto min-h-screen bg-gradient-to-tl from-zinc-900 to-zinc-800  p-2 md:p-5  flex justify-center">
@@ -80,6 +93,7 @@ function Dash() {
             <div className="py-2 flex flex-col">
               <label htmlFor="token-amount"></label>
               <input
+                value={amount}
                 onChange={handleChange}
                 required
                 className="  w-full p-2 text-white font-semibold border-none bg-transparent text-xl focus:outline-none rounded"
@@ -89,9 +103,12 @@ function Dash() {
                 min="1"
                 placeholder="0.0"
               />
+              <p className="text-white mb-2">
+                
+              </p>
             </div>
             <button
-              onClick={handleBuyToken}
+              onClick={() => handleBuyToken(amount)}
               className="rounded bg-lime-500 hover:bg-lime-600 text-white font-semibold text-xl py-2"
             >
               {content[0]}
