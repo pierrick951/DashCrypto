@@ -22,11 +22,18 @@ const CONTRACT_ABI = [
     stateMutability: "payable",
     type: "function",
   },
+  {
+    inputs: [],
+    name: "getSuplly",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function",
+  },
 ];
 
 function Dash() {
   const { user, provider, signer } = useMeta();
-  const [amount, setAmount] = useState(0); 
+  const [amount, setAmount] = useState(0);
   const TokenPrice = ethers.parseEther("0.01");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,30 +49,25 @@ function Dash() {
   };
 
   const handleBuyToken: (amountToken: number) => {} = async (amountToken) => {
-    const contract = getContract();
-
     if (user) {
+      const contract = getContract();
       try {
-        if ( amountToken <= 0 ) {
+        if (amountToken <= 0) {
           toast.success("please choose a quantity higher than zero");
         }
-        const amountTokenBigInt = BigInt(amountToken); 
+        const amountTokenBigInt = BigInt(amountToken);
         const totalPrice = amountTokenBigInt * TokenPrice;
-        const tx = await contract.buyToken(amountToken, { value: totalPrice});
+        const tx = await contract.buyToken(amountToken, { value: totalPrice });
         await tx.wait();
-
 
         contract.on("TokenPurchased", (amount) => {
           toast.success(`Success! You bought ${amount} tokens.`);
         });
 
-
-
         toast.success(`succes you buy ${amountToken}`);
-
       } catch (error) {
         toast.error(`somethings goes wrong`);
-        console.log(error)
+        console.log(error);
       }
     } else if (!user) {
       toast.info("Please conect your wallet");
@@ -103,9 +105,7 @@ function Dash() {
                 min="1"
                 placeholder="0.0"
               />
-              <p className="text-white mb-2">
-                
-              </p>
+              <p className="text-white mb-2"></p>
             </div>
             <button
               onClick={() => handleBuyToken(amount)}

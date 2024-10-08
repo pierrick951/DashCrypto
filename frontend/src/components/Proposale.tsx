@@ -1,21 +1,50 @@
 import { toast } from "sonner";
 import { useMeta } from "../context/ContextMetamask";
-// import { useState } from "react";
+import { ethers } from "ethers";
+import { useState } from "react";
 const content: string[] = ["Proposal", "Set proposal", "Nbm Proposal "];
 
+const CONTRACT_ADDRESS = "0x5Da5E19db8b47f0427e9497260b637eb77aF563B";
+const CONTRACT_ABI = [
+  {
+    inputs: [{ name: "_proposal", type: "string" }],
+    name: "setProposale",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+];
+
 function Proposale() {
-  const { user } = useMeta();
+  const [proposal, setProposal] = useState<string>("");
 
-  // const [countVote, SetCountVote] = useState<Number>(0);
- 
-  
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setProposal(e.target.value);
+  };
 
-  const handleclick = () => {
-    if (user) {
-      try {
-      } catch (error) {}
-    } else {
-      toast.error("Connect Your Wallet");
+  const { user, provider, signer } = useMeta();
+
+  const getContract = () => {
+    if (!provider || !signer) {
+      throw new Error("Wallet not connected");
+    }
+
+    return new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
+  };
+
+  const handleclick = async () => {
+    if (!user) {
+      toast.error("Connect your wallet");
+      return;
+    }
+
+    try {
+      const contract = getContract();
+      const tx = await contract.setProposale(proposal);
+      await tx.wait();
+      toast.success("proposale succes");
+    } catch (error) {
+      toast.error("somethings goes wrong");
     }
   };
   return (
@@ -23,18 +52,11 @@ function Proposale() {
       <h1 className="text-xl text-gray-100 font-bold  text-center lg:text-start">
         {content[0]}
       </h1>
-      <h2 className="py-2 flex justify-between">
-        <span className="text-md text-zinc-700  font-semibold">
-          {content[2]}
-        </span>
-
-        <span className="text-md text-zinc-700  font-semibold">
-        0
-        </span>
-      </h2>
       <div className="py-2 flex flex-col">
         <label htmlFor="vote"></label>
         <input
+          value={proposal}
+          onChange={handleInputChange}
           required
           className="-full p-2 text-white font-semibold border-none bg-transparent text-lg focus:outline-none rounded"
           type="text"
