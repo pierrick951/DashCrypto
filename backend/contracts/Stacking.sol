@@ -40,7 +40,7 @@ contract Stacking is ReentrancyGuard, Ownable, Pausable {
         _;
     }
 
-    function stackTokens(uint256 _amountStaked) public payable nonReentrant {
+    function stackTokens(uint256 _amountStaked) public nonReentrant {
         require(_amountStaked > 0, "Amount must be greater than 0");
         user storage currentUser = users[msg.sender];
         require(!currentUser.hasStake, "You have already a stack");

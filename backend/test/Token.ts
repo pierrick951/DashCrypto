@@ -18,11 +18,11 @@ describe("Token", function () {
 
   describe("admin", function () {
     it("Admin should burn token", async function() {
-        const suplly = await token.getSuplly();
+        const suplly = await token.getSupply();
         const burnAmount = 2n; 
     
         await token.connect(owner).burnToken(burnAmount); 
-        const finalSuplly = await token.getSuplly(); 
+        const finalSuplly = await token.getSupply(); 
     
         expect(finalSuplly).to.equal(suplly - burnAmount); 
     });

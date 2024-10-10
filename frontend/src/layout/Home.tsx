@@ -1,91 +1,34 @@
-import { nanoid } from "nanoid";
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import axios from "axios";
-import {
-  SiSolana,
-  PiCurrencyBtcFill,
-  FaEthereum,
-  SiLitecoin,
-} from "../index.icon";
-import { SettingCardType, CryptoPrices } from "../types/TypeData";
-const API_URL =
-  "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,litecoin,solana&vs_currencies=usd";
-const titleHome = [
-  "Yu",
-  "Real-Time Crypto Insights and Management 📉",
-  "🍋‍🟩",
-  "zu"
-];
-const MotionH1 = motion.h1;
-const MotionP = motion.p;
+
+
+
+const content:string[] = ["Yu","Zu", "Conect your wallet  and Add freshness to your transactions."," YuZu all rigths reserved", "Track Eth ", "Buy Token"]
 function Home() {
-  const settingCard: SettingCardType[] = [
-    { id: nanoid(), text: "ETH", ico: <FaEthereum />, key: "ethereum" },
-    { id: nanoid(), text: "BTC", ico: <PiCurrencyBtcFill />, key: "bitcoin" },
-    { id: nanoid(), text: "LTC", ico: <SiLitecoin />, key: "litecoin" },
-    { id: nanoid(), text: "SOL", ico: <SiSolana />, key: "solana" },
-  ];
-
-  const [data, setData] = useState<CryptoPrices | null>(null);
-
-  const getResults = async () => {
-    try {
-      const response = await axios.get(API_URL);
-      setData(response.data);
-    } catch (error) {
-      console.error("Error fetching data", error);
-    }
-  };
-
-  useEffect(() => {
-    getResults();
-  }, []);
-
   return (
-    <div className="w-full h-screen flex flex-col lg:justify-center lg:items-center overflow-auto p-3 overflow-x-hidden bg-gradient-to-tl from-zinc-950 to-zinc-800">
-      <header className="text-center flex flex-col justify-center items-center">
-        <MotionH1
-          className="py-5 text-4xl md:text-4xl lg:text-6xl flex-row flex text-lime-500 font-bold text-center"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="text-white">{titleHome[0]}</span>
-          <span>{titleHome[3]}</span>
-          <span className="hidden md:block">{titleHome[2]}</span>
-        </MotionH1>
-        <MotionP
-          className="text-gray-50 font-medium px-3 text-xs lg:text-lg "
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          {titleHome[1]}
-        </MotionP>
+    <div className="w-full min-h-screen  h-auto flex flex-col  overflow-auto overflow-x-hidden bg-gradient-to-tl from-zinc-950 to-zinc-800">
+      <style>
+        {`.background-glow {
+  width: 80%;
+  height: 50%;
+background: radial-gradient(circle at center, rgba(163, 230, 53, 0.2) 0%, rgba(13, 17, 23, 0) 60%);
+
+  filter: blur(100px);
+}`}
+      </style>
+      <header className="text-center lg:h-[400px]   flex flex-col lg:items-center lg:justify-center overflow-hidden p-3">
+      <div className=" hidden background-glow lg:block   absolute  "></div>
+     
+        <h1 className="font-bold py-4 lg">
+          <span className=" text-5xl lg:text-8xl text-white">{content[0]}</span>
+          <span className="text-5xl   lg:text-8xl text-lime-500">{content[1]}</span>
+        </h1>
+        <p className="text-gray-100 font-medium ">{content[2]}</p>
+        <a href="/dash"className="my-4  max-w-sm bg-lime-700 hover:bg-lime-600 items-center justify-center px-3 py-2 rounded-lg font-semibold text-gray-50">{content[5]}</a>
+ 
       </header>
-      <main className=" w-full h-auto  p-5 flex justify-center items-center">
-        <div className="grid-cols-1 grid md:grid-cols-2 gap-3 lg:grid-cols-4">
-          {settingCard.map((item) => (
-            <div
-              key={item.id}
-              className="bg-white rounded-xl shadow-2xl shadow-zinc-800 md:w-40 p-5 my-2 font-bold text-zinc-800"
-            >
-              <div className="flex flex-col items-center justify-center w-full ">
-                <span className="text-3xl text-slate-800">{item.ico}</span>
-                <span>{item.text}</span>
-              </div>
-              <div className="text-center">
-                <p className="text-lime-600 font-bold animate-pulse text-xl">
-                  {data ? `${data[item.key].usd} $` : "Loading..."}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </main>
+      
     </div>
+    
   );
-}
+} 
 
 export default Home;

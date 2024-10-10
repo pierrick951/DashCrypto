@@ -6,30 +6,21 @@ import { handleChangeType } from "../types/TypeContract";
 
 const content: string[] = ["Stack", "Start Stacking"];
 const CONTRACT_ADDRESS = "0x0f4AC7ae9be2421F4AEF7Eb3dF7925aab39B563d";
+
 const CONTRACT_ABI = [
   {
     inputs: [{ name: "_amountStaked", type: "uint256" }],
     name: "stackTokens",
     outputs: [],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "getStakeInfo",
-    outputs: [
-      { internalType: "uint256", name: "", type: "uint256" },
-      { internalType: "uint256", name: "", type: "uint256" },
-      { internalType: "bool", name: "", type: "bool" },
-    ],
-    stateMutability: "view",
+    stateMutability: "nonpayable",
     type: "function",
   },
 ];
 
 function Stake() {
   const { user, provider, signer } = useMeta();
-  const [stake, setStake] = useState<number>();
+  const [stake, setStake] = useState<number>(0);
+
   const handleChange: handleChangeType = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -44,21 +35,25 @@ function Stake() {
     return new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
   };
 
-  const handleClick: (stake : number) => Promise<void> = async (stake) => {
+  const handleClick: (stake: number) => Promise<void> = async (stake) => {
     if (user) {
       const contract = getContract();
       try {
-      
-        const tx = contract.stackTokens(stake);
-        // await tx.wait();
+        const tx = await contract.stackTokens(stake);
+        await tx.wait();
+
+        contract.on("Stacked", (stake) => {
+          toast.success(`Success you have stake ${stake} YZU`);
+        });
         
       } catch (error) {
-        toast.error(`somethings goes wrong`);
+        toast.error(`Sorry, somethings goes wrong`);
       }
     } else {
       toast.error("Conect your wallet");
     }
   };
+
   return (
     <div className="mt-8">
       <h1 className="text-xl text-gray-100 font-bold  text-center lg:text-start">
@@ -78,7 +73,7 @@ function Stake() {
           placeholder="0.0"
         />
         <button
-          onClick={handleClick}
+          onClick={() => handleClick(stake)}
           className="rounded bg-lime-700 hover:bg-lime-600 text-white font-semibold text-lg   py-2 mt-8"
         >
           {content[1]}
